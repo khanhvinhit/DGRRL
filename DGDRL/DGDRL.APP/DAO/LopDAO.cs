@@ -57,6 +57,7 @@ namespace DGDRL.APP.DAO
         {
             var del = GetByMaLop(MaLop);
             _db.Lops.Remove(del);
+
             return SaveToDatabase();
         }
     }
