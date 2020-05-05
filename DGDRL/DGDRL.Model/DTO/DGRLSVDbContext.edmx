@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DGRLSVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DGRenLuyen">
+          <Key>
+            <PropertyRef Name="NamHoc" />
+            <PropertyRef Name="MaHK" />
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="MaTC" />
+            <PropertyRef Name="MaLC" />
+          </Key>
+          <Property Name="NamHoc" Type="int" Nullable="false" />
+          <Property Name="MaHK" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="MSSV" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="MaTC" Type="int" Nullable="false" />
+          <Property Name="MaLC" Type="int" Nullable="false" />
+          <Property Name="DiemSVDG" Type="int" />
+          <Property Name="DiemLT" Type="int" />
+          <Property Name="DiemCVHT" Type="int" />
+        </EntityType>
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="MaGV" />
+          </Key>
+          <Property Name="MaGV" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TenGV" Type="nvarchar" MaxLength="250" />
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="250" />
+          <Property Name="TenTaiKhoan" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="NamHoc" />
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MSSV" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="NamHoc" Type="int" Nullable="false" />
+          <Property Name="MaHK" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TongDiemSV" Type="int" />
+          <Property Name="TongDiemLT" Type="int" />
+          <Property Name="TongDiemCVHT" Type="int" />
+          <Property Name="XepLoai" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TenKhoa" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="250" />
+          <Property Name="MaKhoa" Type="nvarchar" MaxLength="250" />
+          <Property Name="MaGV" Type="nvarchar" MaxLength="250" />
+          <Property Name="MaLT" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="LuaChonChiTiet">
+          <Key>
+            <PropertyRef Name="MaLC" />
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaLC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaCT" Type="int" Nullable="false" />
+          <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiemMin" Type="int" />
+          <Property Name="DiemMax" Type="int" />
+        </EntityType>
+        <EntityType Name="NoiDungChiTiet">
+          <Key>
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaTC" Type="int" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiemCTMax" Type="int" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="250" />
+          <Property Name="NgaySinh" Type="date" />
+          <Property Name="QueQuan" Type="nvarchar" MaxLength="500" />
+          <Property Name="MaLop" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="250" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="TieuChiDanhGia">
+          <Key>
+            <PropertyRef Name="MaTC" />
+          </Key>
+          <Property Name="MaTC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NoiDung" Type="nvarchar" MaxLength="500" />
+          <Property Name="DiemTCMax" Type="int" />
+        </EntityType>
+        <EntityContainer Name="DGRLSVModelStoreContainer">
+          <EntitySet Name="DGRenLuyen" EntityType="Self.DGRenLuyen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GiangVien" EntityType="Self.GiangVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KetQua" EntityType="Self.KetQua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Khoa" EntityType="Self.Khoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lop" EntityType="Self.Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LuaChonChiTiet" EntityType="Self.LuaChonChiTiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoiDungChiTiet" EntityType="Self.NoiDungChiTiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SinhVien" EntityType="Self.SinhVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TieuChiDanhGia" EntityType="Self.TieuChiDanhGia" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DGRLSVModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DGRLSVEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DGRenLuyens" EntityType="DGRLSVModel.DGRenLuyen" />
+          <EntitySet Name="GiangViens" EntityType="DGRLSVModel.GiangVien" />
+          <EntitySet Name="KetQuas" EntityType="DGRLSVModel.KetQua" />
+          <EntitySet Name="Khoas" EntityType="DGRLSVModel.Khoa" />
+          <EntitySet Name="Lops" EntityType="DGRLSVModel.Lop" />
+          <EntitySet Name="LuaChonChiTiets" EntityType="DGRLSVModel.LuaChonChiTiet" />
+          <EntitySet Name="NoiDungChiTiets" EntityType="DGRLSVModel.NoiDungChiTiet" />
+          <EntitySet Name="SinhViens" EntityType="DGRLSVModel.SinhVien" />
+          <EntitySet Name="TaiKhoans" EntityType="DGRLSVModel.TaiKhoan" />
+          <EntitySet Name="TieuChiDanhGias" EntityType="DGRLSVModel.TieuChiDanhGia" />
+        </EntityContainer>
+        <EntityType Name="DGRenLuyen">
+          <Key>
+            <PropertyRef Name="NamHoc" />
+            <PropertyRef Name="MaHK" />
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="MaTC" />
+            <PropertyRef Name="MaLC" />
+          </Key>
+          <Property Name="NamHoc" Type="Int32" Nullable="false" />
+          <Property Name="MaHK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MSSV" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaTC" Type="Int32" Nullable="false" />
+          <Property Name="MaLC" Type="Int32" Nullable="false" />
+          <Property Name="DiemSVDG" Type="Int32" />
+          <Property Name="DiemLT" Type="Int32" />
+          <Property Name="DiemCVHT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GiangVien">
+          <Key>
+            <PropertyRef Name="MaGV" />
+          </Key>
+          <Property Name="MaGV" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenGV" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenTaiKhoan" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="KetQua">
+          <Key>
+            <PropertyRef Name="MSSV" />
+            <PropertyRef Name="NamHoc" />
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MSSV" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NamHoc" Type="Int32" Nullable="false" />
+          <Property Name="MaHK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TongDiemSV" Type="Int32" />
+          <Property Name="TongDiemLT" Type="Int32" />
+          <Property Name="TongDiemCVHT" Type="Int32" />
+          <Property Name="XepLoai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Khoa">
+          <Key>
+            <PropertyRef Name="MaKhoa" />
+          </Key>
+          <Property Name="MaKhoa" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenKhoa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="TenLop" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaKhoa" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaGV" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaLT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="LuaChonChiTiet">
+          <Key>
+            <PropertyRef Name="MaLC" />
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaLC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaCT" Type="Int32" Nullable="false" />
+          <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiemMin" Type="Int32" />
+          <Property Name="DiemMax" Type="Int32" />
+        </EntityType>
+        <EntityType Name="NoiDungChiTiet">
+          <Key>
+            <PropertyRef Name="MaCT" />
+          </Key>
+          <Property Name="MaCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaTC" Type="Int32" />
+          <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiemCTMax" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SinhVien">
+          <Key>
+            <PropertyRef Name="MSSV" />
+          </Key>
+          <Property Name="MSSV" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="HoTen" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
+          <Property Name="QueQuan" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MaLop" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TaiKhoan">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="ChucVu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TieuChiDanhGia">
+          <Key>
+            <PropertyRef Name="MaTC" />
+          </Key>
+          <Property Name="MaTC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NoiDung" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DiemTCMax" Type="Int32" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DGRLSVModelStoreContainer" CdmEntityContainer="DGRLSVEntities">
+          <EntitySetMapping Name="DGRenLuyens">
+            <EntityTypeMapping TypeName="DGRLSVModel.DGRenLuyen">
+              <MappingFragment StoreEntitySet="DGRenLuyen">
+                <ScalarProperty Name="DiemCVHT" ColumnName="DiemCVHT" />
+                <ScalarProperty Name="DiemLT" ColumnName="DiemLT" />
+                <ScalarProperty Name="DiemSVDG" ColumnName="DiemSVDG" />
+                <ScalarProperty Name="MaLC" ColumnName="MaLC" />
+                <ScalarProperty Name="MaTC" ColumnName="MaTC" />
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GiangViens">
+            <EntityTypeMapping TypeName="DGRLSVModel.GiangVien">
+              <MappingFragment StoreEntitySet="GiangVien">
+                <ScalarProperty Name="TenTaiKhoan" ColumnName="TenTaiKhoan" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenGV" ColumnName="TenGV" />
+                <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KetQuas">
+            <EntityTypeMapping TypeName="DGRLSVModel.KetQua">
+              <MappingFragment StoreEntitySet="KetQua">
+                <ScalarProperty Name="XepLoai" ColumnName="XepLoai" />
+                <ScalarProperty Name="TongDiemCVHT" ColumnName="TongDiemCVHT" />
+                <ScalarProperty Name="TongDiemLT" ColumnName="TongDiemLT" />
+                <ScalarProperty Name="TongDiemSV" ColumnName="TongDiemSV" />
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Khoas">
+            <EntityTypeMapping TypeName="DGRLSVModel.Khoa">
+              <MappingFragment StoreEntitySet="Khoa">
+                <ScalarProperty Name="TenKhoa" ColumnName="TenKhoa" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lops">
+            <EntityTypeMapping TypeName="DGRLSVModel.Lop">
+              <MappingFragment StoreEntitySet="Lop">
+                <ScalarProperty Name="MaLT" ColumnName="MaLT" />
+                <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+                <ScalarProperty Name="MaKhoa" ColumnName="MaKhoa" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LuaChonChiTiets">
+            <EntityTypeMapping TypeName="DGRLSVModel.LuaChonChiTiet">
+              <MappingFragment StoreEntitySet="LuaChonChiTiet">
+                <ScalarProperty Name="DiemMax" ColumnName="DiemMax" />
+                <ScalarProperty Name="DiemMin" ColumnName="DiemMin" />
+                <ScalarProperty Name="MoTa" ColumnName="MoTa" />
+                <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+                <ScalarProperty Name="MaLC" ColumnName="MaLC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoiDungChiTiets">
+            <EntityTypeMapping TypeName="DGRLSVModel.NoiDungChiTiet">
+              <MappingFragment StoreEntitySet="NoiDungChiTiet">
+                <ScalarProperty Name="DiemCTMax" ColumnName="DiemCTMax" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="MaTC" ColumnName="MaTC" />
+                <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SinhViens">
+            <EntityTypeMapping TypeName="DGRLSVModel.SinhVien">
+              <MappingFragment StoreEntitySet="SinhVien">
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="QueQuan" ColumnName="QueQuan" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MSSV" ColumnName="MSSV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TaiKhoans">
+            <EntityTypeMapping TypeName="DGRLSVModel.TaiKhoan">
+              <MappingFragment StoreEntitySet="TaiKhoan">
+                <ScalarProperty Name="ChucVu" ColumnName="ChucVu" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TieuChiDanhGias">
+            <EntityTypeMapping TypeName="DGRLSVModel.TieuChiDanhGia">
+              <MappingFragment StoreEntitySet="TieuChiDanhGia">
+                <ScalarProperty Name="DiemTCMax" ColumnName="DiemTCMax" />
+                <ScalarProperty Name="NoiDung" ColumnName="NoiDung" />
+                <ScalarProperty Name="MaTC" ColumnName="MaTC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
