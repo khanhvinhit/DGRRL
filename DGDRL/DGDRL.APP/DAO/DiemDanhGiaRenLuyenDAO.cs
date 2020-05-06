@@ -9,9 +9,9 @@ namespace DGDRL.APP.DAO
 {
     public class DiemDanhGiaRenLuyenDAO:BaseDAO
     {
-        public DGRenLuyen GetByNamHoc(int NamHoc)
+        public DGRenLuyen GetByID(int ID)
         {
-            return _db.DGRenLuyens.FirstOrDefault(x => x.NamHoc == NamHoc);
+            return _db.DGRenLuyens.FirstOrDefault(x => x.ID == ID);
         }
 
         public List<DGRenLuyen> GetAll()
@@ -27,10 +27,9 @@ namespace DGDRL.APP.DAO
             }
             else
             {
-                var up = GetByNamHoc(item.NamHoc);               
+                var up = GetByID(item.ID);               
                 up.MaHK = item.MaHK;
                 up.MSSV = item.MSSV;
-                up.MaTC = item.MaTC;
                 up.MaLC = item.MaLC;
                 up.DiemSVDG = item.DiemSVDG;
                 up.DiemLT = item.DiemLT;
@@ -38,9 +37,9 @@ namespace DGDRL.APP.DAO
             }
             return SaveToDatabase();
         }
-        public bool Delete(int NamHoc)
+        public bool Delete(int ID)
         {
-            var del = GetByNamHoc(NamHoc);
+            var del = GetByID(ID);
             _db.DGRenLuyens.Remove(del);
             return SaveToDatabase();
         }
