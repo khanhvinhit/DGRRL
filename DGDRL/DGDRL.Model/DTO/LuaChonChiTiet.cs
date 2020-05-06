@@ -15,7 +15,7 @@ namespace DGDRL.Model.DTO
     public partial class LuaChonChiTiet
     {
         public int MaLC { get; set; }
-        public int MaCT { get; set; }
+        public Nullable<int> MaCT { get; set; }
         public string MoTa { get; set; }
         public Nullable<int> DiemMin { get; set; }
         public Nullable<int> DiemMax { get; set; }

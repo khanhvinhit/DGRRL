@@ -14,10 +14,10 @@ namespace DGDRL.Model.DTO
     
     public partial class DGRenLuyen
     {
+        public int ID { get; set; }
         public int NamHoc { get; set; }
         public string MaHK { get; set; }
         public string MSSV { get; set; }
-        public int MaTC { get; set; }
         public int MaLC { get; set; }
         public Nullable<int> DiemSVDG { get; set; }
         public Nullable<int> DiemLT { get; set; }

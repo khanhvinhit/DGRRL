@@ -7,16 +7,12 @@
     <Schema Namespace="DGRLSVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DGRenLuyen">
           <Key>
-            <PropertyRef Name="NamHoc" />
-            <PropertyRef Name="MaHK" />
-            <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaTC" />
-            <PropertyRef Name="MaLC" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NamHoc" Type="int" Nullable="false" />
           <Property Name="MaHK" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="MSSV" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="MaTC" Type="int" Nullable="false" />
           <Property Name="MaLC" Type="int" Nullable="false" />
           <Property Name="DiemSVDG" Type="int" />
           <Property Name="DiemLT" Type="int" />
@@ -65,10 +61,9 @@
         <EntityType Name="LuaChonChiTiet">
           <Key>
             <PropertyRef Name="MaLC" />
-            <PropertyRef Name="MaCT" />
           </Key>
           <Property Name="MaLC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MaCT" Type="int" Nullable="false" />
+          <Property Name="MaCT" Type="int" />
           <Property Name="MoTa" Type="nvarchar" MaxLength="500" />
           <Property Name="DiemMin" Type="int" />
           <Property Name="DiemMax" Type="int" />
@@ -138,16 +133,12 @@
         </EntityContainer>
         <EntityType Name="DGRenLuyen">
           <Key>
-            <PropertyRef Name="NamHoc" />
-            <PropertyRef Name="MaHK" />
-            <PropertyRef Name="MSSV" />
-            <PropertyRef Name="MaTC" />
-            <PropertyRef Name="MaLC" />
+            <PropertyRef Name="ID" />
           </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamHoc" Type="Int32" Nullable="false" />
           <Property Name="MaHK" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="MSSV" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="MaTC" Type="Int32" Nullable="false" />
           <Property Name="MaLC" Type="Int32" Nullable="false" />
           <Property Name="DiemSVDG" Type="Int32" />
           <Property Name="DiemLT" Type="Int32" />
@@ -196,10 +187,9 @@
         <EntityType Name="LuaChonChiTiet">
           <Key>
             <PropertyRef Name="MaLC" />
-            <PropertyRef Name="MaCT" />
           </Key>
           <Property Name="MaLC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaCT" Type="Int32" Nullable="false" />
+          <Property Name="MaCT" Type="Int32" />
           <Property Name="MoTa" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="DiemMin" Type="Int32" />
           <Property Name="DiemMax" Type="Int32" />
@@ -252,10 +242,10 @@
                 <ScalarProperty Name="DiemLT" ColumnName="DiemLT" />
                 <ScalarProperty Name="DiemSVDG" ColumnName="DiemSVDG" />
                 <ScalarProperty Name="MaLC" ColumnName="MaLC" />
-                <ScalarProperty Name="MaTC" ColumnName="MaTC" />
                 <ScalarProperty Name="MSSV" ColumnName="MSSV" />
                 <ScalarProperty Name="MaHK" ColumnName="MaHK" />
                 <ScalarProperty Name="NamHoc" ColumnName="NamHoc" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
