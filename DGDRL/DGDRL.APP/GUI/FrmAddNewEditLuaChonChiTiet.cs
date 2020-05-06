@@ -31,10 +31,10 @@ namespace DGDRL.APP.GUI
 
         public void LoadDanhSachCT()
         {
-            var dao = new TieuChiDanhGiaDAO();
+            var dao = new NoiDungChiTietDAO();
             var lst = dao.GetAll();
             cbbDanhSachTC.Properties.DataSource = lst;
-            cbbDanhSachTC.Properties.ValueMember = "MaTC";
+            cbbDanhSachTC.Properties.ValueMember = "MaCT";
             cbbDanhSachTC.Properties.DisplayMember = "NoiDung";
 
         }
@@ -45,8 +45,8 @@ namespace DGDRL.APP.GUI
             if (item != null)
             {
                 txtNoiDung.Text = item.MoTa;
-                numDiem.Text = item.DiemMin.Value.ToString();
-                numDiem.Text = item.DiemMax.Value.ToString();
+                numDiemMin.Text = item.DiemMin.Value.ToString();
+                numDiemMin.Text = item.DiemMax.Value.ToString();
                 cbbDanhSachTC.EditValue = item.MaCT;
 
             }
@@ -65,22 +65,28 @@ namespace DGDRL.APP.GUI
             string sErr = "";
             bool bVali = true;
             var nd = txtNoiDung.Text;
-            var max = numDiem.Text;
-            var tc = cbbDanhSachTC.EditValue as string;
+            var min = numDiemMin.Text;
+            var max = numDiemMax.Text;
+            var tc = (int)cbbDanhSachTC.EditValue;
             if (string.IsNullOrEmpty(nd))
             {
                 bVali = false;
-                sErr = sErr + "Vui lòng nhập nội dung chi tiết đánh giá";
+                sErr = sErr + "Vui lòng nhập mô tả";
+            }
+            if (string.IsNullOrEmpty(min))
+            {
+                bVali = false;
+                sErr = sErr + "Vui lòng nhập số điểm tối thiểu";
             }
             if (string.IsNullOrEmpty(max))
             {
                 bVali = false;
                 sErr = sErr + "Vui lòng nhập số điểm tối đa";
             }
-            if (string.IsNullOrEmpty(tc))
+            if (tc <= 0)
             {
                 bVali = false;
-                sErr = sErr + "Vui lòng chọn tiêu chí đánh giá";
+                sErr = sErr + "Vui lòng chọn nội dung chi tiết";
             }
             if (bVali)
             {
@@ -91,9 +97,9 @@ namespace DGDRL.APP.GUI
                     mode = 0;
                 }
                 item.MoTa = nd;
-                item.DiemMin = int.Parse(max);
+                item.DiemMin = int.Parse(min);
                 item.DiemMax = int.Parse(max);
-                item.MaCT = int.Parse(tc);
+                item.MaCT = tc;
                 var res = dao.AddOrUpdate(item, mode);
                 if (res)
                 {

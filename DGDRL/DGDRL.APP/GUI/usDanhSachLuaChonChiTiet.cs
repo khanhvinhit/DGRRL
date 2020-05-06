@@ -29,10 +29,10 @@ namespace DGDRL.APP.GUI
         }
         public void LoadDanhSachTC()
         {
-            var dao = new TieuChiDanhGiaDAO();
+            var dao = new NoiDungChiTietDAO();
             var lst = dao.GetAll();
             cbbDanhSachTC.Properties.DataSource = lst;
-            cbbDanhSachTC.Properties.ValueMember = "MaTC";
+            cbbDanhSachTC.Properties.ValueMember = "MaCT";
             cbbDanhSachTC.Properties.DisplayMember = "NoiDung";
         }
         public void LoadDanhSachLCCT()
@@ -43,14 +43,14 @@ namespace DGDRL.APP.GUI
             var lst = new List<LuaChonChiTiet>();
             var ids = string.Join(",", cbbDanhSachTC.Properties.Items.GetCheckedValues());
             var ser = txtSearch.Text;
-            //if (string.IsNullOrEmpty(ids))
-            //{
-            //    lst = dao.GetAll(ser);
-            //}
-            //else
-            //{
-            //    lst = dao.GetAllByMaKhoa(ids, ser);
-            //}
+            if (string.IsNullOrEmpty(ids))
+            {
+                lst = dao.GetAll(ser);
+            }
+            else
+            {
+                lst = dao.GetAllByMaKhoa(ids, ser);
+            }
 
             gcDanhSach.DataSource = lst;
         }
@@ -102,7 +102,7 @@ namespace DGDRL.APP.GUI
         }
         private void form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadDanhSachTC();
+            LoadDanhSachLCCT();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -102,7 +102,7 @@ namespace DGDRL.APP.GUI
         }
         private void form_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LoadDanhSachTC();
+            LoadDanhSachNDCT();
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {

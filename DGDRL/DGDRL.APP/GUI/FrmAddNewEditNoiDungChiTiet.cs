@@ -63,7 +63,7 @@ namespace DGDRL.APP.GUI
             bool bVali = true;
             var nd = txtNoiDung.Text;
             var max = numDiem.Text;
-            var tc = cbbDanhSachTC.EditValue as string;
+            var tc = (int)cbbDanhSachTC.EditValue;
             if (string.IsNullOrEmpty(nd))
             {
                 bVali = false;
@@ -74,7 +74,7 @@ namespace DGDRL.APP.GUI
                 bVali = false;
                 sErr = sErr + "Vui lòng nhập số điểm tối đa";
             }
-            if (string.IsNullOrEmpty(tc))
+            if (tc <= 0)
             {
                 bVali = false;
                 sErr = sErr + "Vui lòng chọn tiêu chí đánh giá";
@@ -89,7 +89,7 @@ namespace DGDRL.APP.GUI
                 }
                 item.NoiDung = nd;
                 item.DiemCTMax = int.Parse(max);
-                item.MaTC = int.Parse(tc);
+                item.MaTC = tc;
                 var res = dao.AddOrUpdate(item, mode);
                 if (res)
                 {

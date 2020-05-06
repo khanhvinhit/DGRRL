@@ -121,7 +121,7 @@
             // 
             // DiemMin
             // 
-            this.DiemMin.Caption = "Điểm Nhỏ Nhất";
+            this.DiemMin.Caption = "Điểm Tối Thiểu";
             this.DiemMin.FieldName = "DiemMin";
             this.DiemMin.Name = "DiemMin";
             this.DiemMin.OptionsColumn.AllowEdit = false;
@@ -132,7 +132,7 @@
             // 
             // DiemMax
             // 
-            this.DiemMax.Caption = "Điểm Lớn Nhất";
+            this.DiemMax.Caption = "Điểm Tối Đa";
             this.DiemMax.FieldName = "DiemMax";
             this.DiemMax.Name = "DiemMax";
             this.DiemMax.OptionsColumn.AllowEdit = false;
@@ -188,9 +188,9 @@
             // 
             this.labelControl1.Location = new System.Drawing.Point(5, 24);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(80, 13);
+            this.labelControl1.Size = new System.Drawing.Size(77, 13);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Chỉ tiêu đáng giá";
+            this.labelControl1.Text = "Nội dung chi tiết";
             // 
             // labelControl2
             // 

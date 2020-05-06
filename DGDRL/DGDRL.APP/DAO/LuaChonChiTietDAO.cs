@@ -14,9 +14,23 @@ namespace DGDRL.APP.DAO
             return _db.LuaChonChiTiets.FirstOrDefault(x => x.MaLC == MaLC);
         }
 
-        public List<LuaChonChiTiet> GetAll()
+        public List<LuaChonChiTiet> GetAll(string content = "")
         {
-            return _db.LuaChonChiTiets.ToList();
+            if (string.IsNullOrEmpty(content))
+            {
+                return _db.LuaChonChiTiets.ToList();
+            }
+            return _db.LuaChonChiTiets.Where(x => x.MoTa.Contains(content)).ToList();
+        }
+
+        public List<LuaChonChiTiet> GetAllByMaKhoa(string TC, string content = "")
+        {
+            var lst = TC.Split(',');
+            if (string.IsNullOrEmpty(content))
+            {
+                return _db.LuaChonChiTiets.Where(x => lst.Any(y => int.Parse(y) == x.MaLC)).ToList();
+            }
+            return _db.LuaChonChiTiets.Where(x => lst.Any(y => int.Parse(y) == x.MaLC)).Where(x => x.MoTa.Contains(content)).ToList();
         }
 
         public bool AddOrUpdate(LuaChonChiTiet item, int mode)
