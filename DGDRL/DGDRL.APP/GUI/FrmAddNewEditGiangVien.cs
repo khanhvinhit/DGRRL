@@ -47,7 +47,10 @@ namespace DGDRL.APP.GUI
                 txtMaGiangVien.Text = item.MaGV;
                 txtTenGiangVien.Text = item.TenGV;
                 txtTenTaiKhoan.Text = item.TenTaiKhoan;
-                txtTenTaiKhoan.ReadOnly = true;
+                if (!string.IsNullOrEmpty(item.TenTaiKhoan))
+                {
+                    txtTenTaiKhoan.ReadOnly = true;
+                }
                 cbbDanhSachKhoa.EditValue = item.MaKhoa;
 
             }
@@ -68,7 +71,7 @@ namespace DGDRL.APP.GUI
             var ma = txtMaGiangVien.Text;
             var ten = txtTenGiangVien.Text;
             var khoa = cbbDanhSachKhoa.EditValue as string;
-            var tk = txtTenTaiKhoan.Text;
+            var tk = txtTenTaiKhoan.Text;            
             if (string.IsNullOrEmpty(ma))
             {
                 bVali = false;
@@ -111,19 +114,39 @@ namespace DGDRL.APP.GUI
             if (bVali)
             {
                 var mode = 1;
+                var checktk = false;
                 if (item == null)
                 {
                     item = new GiangVien();
                     item.MaGV = ma;
                     item.TenTaiKhoan = tk;
                     mode = 0;
+                    checktk = true;
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(item.TenTaiKhoan) && !string.IsNullOrEmpty(tk))
+                    {
+                        checktk = true;
+                        item.TenTaiKhoan = tk;
+                    }
                 }
                 item.TenGV = ten;
                 item.MaKhoa = khoa;
                 var res = dao.AddOrUpdate(item, mode);
                 if (res)
                 {
-                    
+
+                    if (checktk)
+                    {
+                        var usDAO = new TaiKhoanDAO();
+                        usDAO.AddOrUpdate(new TaiKhoan()
+                        {
+                            Username = item.TenTaiKhoan,
+                            Password = "1234567890",
+                            ChucVu = "GV"
+                        }, 0);
+                    }
                     if (mode == 1)
                     {
                         sErr = "Cập nhật thành công";

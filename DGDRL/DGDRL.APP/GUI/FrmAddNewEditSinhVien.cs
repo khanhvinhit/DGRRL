@@ -78,6 +78,7 @@ namespace DGDRL.APP.GUI
             var que = txtQueQuan.Text;
             var ngay = deNgaySinh.Text;
             var lop = cbbDanhSachLop.EditValue as string;
+            var cv = cbbQuyen.EditValue as string;
             if (string.IsNullOrEmpty(ma))
             {
                 bVali = false;
@@ -131,6 +132,27 @@ namespace DGDRL.APP.GUI
                     else
                     {
                         sErr = "Thêm thành công";
+                        var usDAO = new TaiKhoanDAO();
+                        if (cv == "SVLT" || cv == "SVLT")
+                        {
+                            var check = usDAO._db.SinhViens.Where(x => x.MaLop == item.MaLop).ToList();
+                            foreach (var ite in check)
+                            {
+                                var us = usDAO.GetByUsername(ite.MSSV);
+                                if (us.ChucVu == cv)
+                                {
+                                    us.ChucVu = "SVTV";
+                                    usDAO.SaveToDatabase();
+                                    break;
+                                }
+                            }
+                        }
+                        usDAO.AddOrUpdate(new TaiKhoan()
+                        {
+                            Username = item.MSSV,
+                            Password = "1234567890",
+                            ChucVu = (string.IsNullOrEmpty(cv) ? "SVTV" : cv)
+                        }, 0);
                     }
                     if (XtraMessageBox.Show(sErr, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
                     {

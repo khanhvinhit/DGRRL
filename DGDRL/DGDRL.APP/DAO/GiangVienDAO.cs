@@ -46,6 +46,7 @@ namespace DGDRL.APP.DAO
                 var up = GetByMaGV(item.MaGV);
                 up.TenGV = item.TenGV;
                 up.MaKhoa = item.MaKhoa;
+                up.TenTaiKhoan = item.TenTaiKhoan;
             }
             return SaveToDatabase();
         }
