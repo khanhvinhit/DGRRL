@@ -71,7 +71,7 @@ namespace DGDRL.APP.GUI
             {
                 var item = griditem.GetRow(griditem.FocusedRowHandle) as LuaChonChiTiet;
                 var dao = new LuaChonChiTietDAO();
-                var res = dao.Delete(item.MaCT);
+                var res = dao.Delete(item.MaLC);
                 if (res)
                 {
                     XtraMessageBox.Show("Xóa thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
