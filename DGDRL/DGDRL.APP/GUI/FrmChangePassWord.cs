@@ -31,22 +31,70 @@ namespace DGDRL.APP.GUI
         {
             var dao = new TaiKhoanDAO();
             var us = dao.GetByUsername(Username.Username);
-            if (us != null)
+            string sErr = "";
+            bool bVali = true;
+            var passOld = txtPasswordOld.Text;
+            var newpass = txtNewPassWord.Text;
+            var confirmpass = txtConfirmPassword.Text;
+
+            if (us == null)
             {
-                us.Password = "";
+                sErr = sErr + "Vui drdfdfgfẩu cũ";
+                bVali = false;
             }
-            var res = dao.SaveToDatabase();
-            if (res)
+            if (string.IsNullOrEmpty(passOld))
             {
-                if (XtraMessageBox.Show("Thay đổi thành công", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                sErr = sErr + "Vui lòng nhập mật khẩu cũ";
+                bVali = false;
+            }
+            if (us.Password != passOld)
+            {
+                sErr = sErr + "Mật khẩu sai";
+                bVali = false;
+            }
+            if (string.IsNullOrEmpty(newpass))
+            {
+                sErr = sErr + "Vui lòng nhập mật khẩu mới";
+                bVali = false;
+            }
+            if (string.IsNullOrEmpty(confirmpass))
+            {
+                sErr = sErr + "Vui lòng nhập mật khẩu xác nhận";
+                bVali = false;
+            }
+            if (newpass == passOld)
+            {
+                sErr = sErr + "Mật khẩu mới trùng với mật khẩu cũ";
+                bVali = false;
+            }
+            if (newpass != confirmpass)
+            {
+                sErr = sErr + "Mật khẩu mới không trùng với xác nhận mật khẩu";
+                bVali = false;
+            }
+            if (bVali)
+            {
+                us.Password = newpass;
+                var res = dao.SaveToDatabase();
+                if (res)
                 {
-                    this.Close();
+                    sErr = sErr + "Thay đổi thành công";
+                    if (XtraMessageBox.Show(sErr, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
+                    {
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    sErr = sErr + "Thay đổi thất bại";
+                    XtraMessageBox.Show(sErr, "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                XtraMessageBox.Show("Thay đổi lỗi", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show(sErr, "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
     }
 }
