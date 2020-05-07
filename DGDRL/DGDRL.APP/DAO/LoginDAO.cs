@@ -29,7 +29,7 @@ namespace DGDRL.APP.DAO
             }
             return 2;
         }
-        public TaiKhoan LoginAccept(string username)
+        public TaiKhoan GetByUser(string username)
         {
             var data = _db.TaiKhoans.FirstOrDefault(x => x.Username == username);
             return data;

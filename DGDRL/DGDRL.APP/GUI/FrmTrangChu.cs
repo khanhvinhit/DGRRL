@@ -115,7 +115,8 @@ namespace DGDRL.APP.GUI
 
         private void barButtonItemDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
         {
-            AddTab(tabControlMain, "btnDoiMatKhau.ImageOptions.SvgImage", "DoiMatKhau", "Đổi Mật Khẩu", new usDanhSachDoiMatKhau());
+            var changepw = new FrmChangePassWord(Username);
+            changepw.ShowDialog();
         }
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)

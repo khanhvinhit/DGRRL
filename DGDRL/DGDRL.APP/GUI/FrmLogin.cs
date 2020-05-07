@@ -56,7 +56,7 @@ namespace DGDRL.APP.GUI
             }
             else
             {
-                var us = dao.LoginAccept(username);
+                var us = dao.GetByUser(username);
                 dataSend(us);
                 this.Close();
             }
