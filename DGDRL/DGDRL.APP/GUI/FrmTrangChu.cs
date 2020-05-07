@@ -24,9 +24,16 @@ namespace DGDRL.APP.GUI
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.dataSend = new FrmLogin.DataSend(GetFirstValue);
             frmLogin.ShowDialog();
-            if (Username.ChucVu != "admin")
+            if (Username != null)
             {
+                if (Username.ChucVu != "admin")
+                {
 
+                }
+            }
+            else
+            {
+                frmLogin.ShowDialog();
             }
         }
 

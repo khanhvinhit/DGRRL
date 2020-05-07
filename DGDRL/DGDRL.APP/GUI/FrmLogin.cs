@@ -15,6 +15,7 @@ namespace DGDRL.APP.GUI
 {
     public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
+        public TaiKhoan Username;
         public delegate void DataSend(TaiKhoan taiKhoan);
         public DataSend dataSend;
         public FrmLogin()
@@ -29,7 +30,14 @@ namespace DGDRL.APP.GUI
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (Username != null)
+            {
+                Close();
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -58,6 +66,7 @@ namespace DGDRL.APP.GUI
             {
                 var us = dao.GetByUser(username);
                 dataSend(us);
+                this.Username = us;
                 this.Close();
             }
         }
