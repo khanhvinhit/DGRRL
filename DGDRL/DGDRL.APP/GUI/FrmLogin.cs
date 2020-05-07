@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DGDRL.APP.DAO;
+using DGDRL.Model.DTO;
 
 namespace DGDRL.APP.GUI
 {
     public partial class FrmLogin : DevExpress.XtraEditors.XtraForm
     {
-        public delegate void DataSend(string username, bool isGiaoVien);
+        public delegate void DataSend(TaiKhoan taiKhoan);
         public DataSend dataSend;
         public FrmLogin()
         {
@@ -43,7 +44,6 @@ namespace DGDRL.APP.GUI
             {
                 MessageBox.Show("Vui lòng nhập mật khẩu", "Lỗi");
             }
-            var isGiaoVien = ckbIsGiaoVien.Checked;
             var dao = new LoginDAO();
             var check = dao.Login(username, password);
             if (check == 0)
@@ -56,10 +56,10 @@ namespace DGDRL.APP.GUI
             }
             else
             {
-                var us = dao.LoginAccept(username, isGiaoVien);
-                dataSend(us, isGiaoVien);
+                var us = dao.LoginAccept(username);
+                dataSend(us);
+                this.Close();
             }
-            this.Close();
         }
     }
 }

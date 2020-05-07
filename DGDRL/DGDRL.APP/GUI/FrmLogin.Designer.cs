@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
-            this.ckbIsGiaoVien = new DevExpress.XtraEditors.CheckEdit();
             this.txtPass = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.txtUser = new DevExpress.XtraEditors.TextEdit();
@@ -38,21 +37,10 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.ckbIsGiaoVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ckbIsGiaoVien
-            // 
-            this.ckbIsGiaoVien.Location = new System.Drawing.Point(187, 178);
-            this.ckbIsGiaoVien.Name = "ckbIsGiaoVien";
-            this.ckbIsGiaoVien.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckbIsGiaoVien.Properties.Appearance.Options.UseFont = true;
-            this.ckbIsGiaoVien.Properties.Caption = "Giáo viên";
-            this.ckbIsGiaoVien.Size = new System.Drawing.Size(91, 20);
-            this.ckbIsGiaoVien.TabIndex = 6;
             // 
             // txtPass
             // 
@@ -138,7 +126,6 @@
             this.ClientSize = new System.Drawing.Size(441, 284);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.pictureEdit1);
-            this.Controls.Add(this.ckbIsGiaoVien);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.btnLogin);
@@ -148,14 +135,13 @@
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(451, 316);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(451, 316);
+            this.MinimumSize = new System.Drawing.Size(443, 316);
             this.Name = "FrmLogin";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
-            ((System.ComponentModel.ISupportInitialize)(this.ckbIsGiaoVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPass.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUser.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
@@ -169,7 +155,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.TextEdit txtUser;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.CheckEdit ckbIsGiaoVien;
         private DevExpress.XtraEditors.SimpleButton btnLogin;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;

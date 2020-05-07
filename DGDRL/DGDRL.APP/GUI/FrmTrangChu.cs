@@ -10,27 +10,29 @@ using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraTab;
 using DevExpress.XtraTab.ViewInfo;
+using DGDRL.Model.DTO;
 
 namespace DGDRL.APP.GUI
 {
     public partial class FrmTrangChu : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public string username;//this
-        public bool isGiaoVien;//this
+        public TaiKhoan Username;
         ComponentResourceManager resources = new ComponentResourceManager(typeof(FrmTrangChu));
         public FrmTrangChu()
         {
             InitializeComponent();
-            //FrmLogin frmLogin = new FrmLogin();
-            //frmLogin.dataSend = new FrmLogin.DataSend(GetFirstValue);
-            //frmLogin.ShowDialog();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.dataSend = new FrmLogin.DataSend(GetFirstValue);
+            frmLogin.ShowDialog();
+            if (Username.ChucVu != "admin")
+            {
 
+            }
         }
 
-        public void GetFirstValue(string username, bool isgiaovien)
+        public void GetFirstValue(TaiKhoan username)
         {
-            this.username = username;
-            this.isGiaoVien = isgiaovien;
+            this.Username = username;
         }
         public int checkTab(string TabNameAdd)
         {

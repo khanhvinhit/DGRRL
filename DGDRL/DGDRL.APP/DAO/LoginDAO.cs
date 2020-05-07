@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DGDRL.Model.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,18 +29,10 @@ namespace DGDRL.APP.DAO
             }
             return 2;
         }
-        public string LoginAccept(string username, bool isGiaoVien)
+        public TaiKhoan LoginAccept(string username)
         {
-            if (isGiaoVien)
-            {
-                var data = _db.GiangViens.FirstOrDefault(x => x.MaGV == username);
-                return data.MaGV;
-            }
-            else
-            {
-                var data = _db.SinhViens.FirstOrDefault(x => x.MSSV == username);
-                return data.MSSV;
-            }
+            var data = _db.TaiKhoans.FirstOrDefault(x => x.Username == username);
+            return data;
         }
     }
 }
