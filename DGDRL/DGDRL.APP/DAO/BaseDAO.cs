@@ -26,9 +26,6 @@ namespace DGDRL.APP.DAO
             {
                 throw;
             }
-        }
-
-
-
+        }   
     }
 }
