@@ -117,7 +117,7 @@ namespace DGDRL.APP.GUI
 
         private void btnThongTinCaNhan_ItemClick(object sender, ItemClickEventArgs e)
         {
-            AddTab(tabControlMain, "btnThongTinCaNhan.ImageOptions.SvgImage", "ThongTinCaNhan", "Thông Tin Cá Nhân", new usDanhSachThongTinCaNhan());
+            AddTab(tabControlMain, "btnThongTinCaNhan.ImageOptions.SvgImage", "ThongTinCaNhan", "Thông Tin Cá Nhân", new usDanhSachThongTinCaNhan(Username));
         }
 
         private void barButtonItemDoiMatKhau_ItemClick(object sender, ItemClickEventArgs e)
@@ -129,6 +129,26 @@ namespace DGDRL.APP.GUI
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
             AddTab(tabControlMain, "btnDanhGiaDiemRenLuyen.ImageOptions.SvgImage", "DanhGiaDiemRenLuyen", "Đánh Giá Điểm Rèn Luyện", new usDanhSachDanhGiaDiemRenLuyen());
+        }
+
+        private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.dataSend = new FrmLogin.DataSend(GetFirstValue);
+            frmLogin.ShowDialog();
+            if (Username != null)
+            {
+                this.Show();
+                if (Username.ChucVu != "admin")
+                {
+
+                }
+            }
+            else
+            {
+                frmLogin.ShowDialog();
+            }
         }
     }
 }

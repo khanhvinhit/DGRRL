@@ -139,11 +139,15 @@ namespace DGDRL.APP.GUI
                             foreach (var ite in check)
                             {
                                 var us = usDAO.GetByUsername(ite.MSSV);
-                                if (us.ChucVu == cv)
+                                if (us != null)
                                 {
-                                    us.ChucVu = "SVTV";
-                                    usDAO.SaveToDatabase();
-                                    break;
+                                    if (us.ChucVu == cv)
+                                    {
+                                        us.ChucVu = "SVTV";
+                                        usDAO.SaveToDatabase();
+                                        break;
+                                    }
+
                                 }
                             }
                         }

@@ -53,6 +53,7 @@
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.SuspendLayout();
@@ -78,9 +79,10 @@
             this.barButtonItem6,
             this.barButtonItem7,
             this.btnDoiMatKhau,
-            this.btnDanhGiaDiemRenLuyen});
+            this.btnDanhGiaDiemRenLuyen,
+            this.btnLogout});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 24;
+            this.ribbon.MaxItemId = 25;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -212,6 +214,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnThongTinCaNhan);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDoiMatKhau);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnDanhGiaDiemRenLuyen);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnLogout);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Quản Lý";
             // 
@@ -257,6 +260,14 @@
             this.barButtonItem4.Id = 3;
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.Name = "barButtonItem4";
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Caption = "Đăng Xuất";
+            this.btnLogout.Id = 24;
+            this.btnLogout.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnLogout.ImageOptions.SvgImage")));
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
             // FrmTrangChu
             // 
@@ -304,5 +315,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.BarButtonItem btnDoiMatKhau;
         private DevExpress.XtraBars.BarButtonItem btnDanhGiaDiemRenLuyen;
+        private DevExpress.XtraBars.BarButtonItem btnLogout;
     }
 }

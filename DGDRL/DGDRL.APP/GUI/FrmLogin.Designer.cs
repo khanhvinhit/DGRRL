@@ -137,8 +137,6 @@
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(443, 316);
             this.Name = "FrmLogin";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);

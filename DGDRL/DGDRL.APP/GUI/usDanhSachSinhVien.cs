@@ -72,7 +72,7 @@ namespace DGDRL.APP.GUI
             {
                 var item = griditem.GetRow(griditem.FocusedRowHandle) as SinhVien;
                 var dao = new SinhVienDAO();
-                var res = dao.Delete(item.MaLop);
+                var res = dao.Delete(item.MSSV);
                 if (res)
                 {
                     XtraMessageBox.Show("Xóa thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
