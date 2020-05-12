@@ -77,7 +77,7 @@
             this.labelControl4.Location = new System.Drawing.Point(12, 192);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(54, 13);
-            this.labelControl4.TabIndex = 12;
+            this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = "Điểm tối đa";
             // 
             // numDiemMax
@@ -94,14 +94,14 @@
             this.numDiemMax.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
             this.numDiemMax.Properties.Mask.EditMask = "n0";
             this.numDiemMax.Size = new System.Drawing.Size(304, 20);
-            this.numDiemMax.TabIndex = 13;
+            this.numDiemMax.TabIndex = 5;
             // 
             // labelControl3
             // 
             this.labelControl3.Location = new System.Drawing.Point(12, 237);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(84, 13);
-            this.labelControl3.TabIndex = 10;
+            this.labelControl3.TabIndex = 6;
             this.labelControl3.Text = "Nội Dung Chi Tiêu";
             // 
             // btnClose
@@ -164,7 +164,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NoiDung", "Nội Dung")});
             this.cbbDanhSachTC.Properties.NullText = "";
             this.cbbDanhSachTC.Size = new System.Drawing.Size(304, 20);
-            this.cbbDanhSachTC.TabIndex = 11;
+            this.cbbDanhSachTC.TabIndex = 7;
             // 
             // FrmAddNewEditLuaChonChiTiet
             // 
