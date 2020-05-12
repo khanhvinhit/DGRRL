@@ -83,7 +83,7 @@
             this.btnLogin.Location = new System.Drawing.Point(187, 248);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(87, 29);
-            this.btnLogin.TabIndex = 1;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Đăng Nhập";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -94,7 +94,7 @@
             this.btnCancel.Location = new System.Drawing.Point(344, 248);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 29);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Thoát";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -107,7 +107,7 @@
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
             this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.StretchVertical;
             this.pictureEdit1.Size = new System.Drawing.Size(169, 265);
-            this.pictureEdit1.TabIndex = 7;
+            this.pictureEdit1.TabIndex = 6;
             // 
             // labelControl3
             // 
@@ -116,7 +116,7 @@
             this.labelControl3.Location = new System.Drawing.Point(187, 12);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(224, 19);
-            this.labelControl3.TabIndex = 8;
+            this.labelControl3.TabIndex = 7;
             this.labelControl3.Text = "ĐĂNG NHẬP VÀO HỆ THỐNG";
             // 
             // FrmLogin

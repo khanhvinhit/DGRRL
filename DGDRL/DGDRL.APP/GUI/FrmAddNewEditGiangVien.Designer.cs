@@ -103,7 +103,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 102);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(24, 13);
-            this.labelControl3.TabIndex = 5;
+            this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Khoa";
             // 
             // txtTenGiangVien
@@ -145,7 +145,7 @@
             this.cbbDanhSachKhoa.Properties.NullText = "";
             this.cbbDanhSachKhoa.Properties.PopupSizeable = false;
             this.cbbDanhSachKhoa.Size = new System.Drawing.Size(304, 20);
-            this.cbbDanhSachKhoa.TabIndex = 4;
+            this.cbbDanhSachKhoa.TabIndex = 5;
             // 
             // FrmAddNewEditGiangVien
             // 

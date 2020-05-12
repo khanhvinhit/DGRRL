@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.cbbQuyen = new DevExpress.XtraEditors.LookUpEdit();
             this.txtQueQuan = new DevExpress.XtraEditors.TextEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.deNgaySinh = new DevExpress.XtraEditors.DateEdit();
@@ -41,17 +43,15 @@
             this.txtMSSV = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.cbbDanhSachLop = new DevExpress.XtraEditors.LookUpEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.cbbQuyen = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbQuyen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMSSV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachLop.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbQuyen.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -76,19 +76,38 @@
             this.panelControl1.Size = new System.Drawing.Size(326, 320);
             this.panelControl1.TabIndex = 2;
             // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(12, 237);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(40, 13);
+            this.labelControl6.TabIndex = 10;
+            this.labelControl6.Text = "Chức Vụ";
+            // 
+            // cbbQuyen
+            // 
+            this.cbbQuyen.Location = new System.Drawing.Point(12, 256);
+            this.cbbQuyen.Name = "cbbQuyen";
+            this.cbbQuyen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbQuyen.Properties.NullText = "";
+            this.cbbQuyen.Properties.PopupSizeable = false;
+            this.cbbQuyen.Size = new System.Drawing.Size(304, 20);
+            this.cbbQuyen.TabIndex = 11;
+            // 
             // txtQueQuan
             // 
             this.txtQueQuan.Location = new System.Drawing.Point(12, 166);
             this.txtQueQuan.Name = "txtQueQuan";
             this.txtQueQuan.Size = new System.Drawing.Size(304, 20);
-            this.txtQueQuan.TabIndex = 13;
+            this.txtQueQuan.TabIndex = 7;
             // 
             // labelControl5
             // 
             this.labelControl5.Location = new System.Drawing.Point(12, 147);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(49, 13);
-            this.labelControl5.TabIndex = 12;
+            this.labelControl5.TabIndex = 6;
             this.labelControl5.Text = "Quê Quán";
             // 
             // deNgaySinh
@@ -106,14 +125,14 @@
             this.deNgaySinh.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.deNgaySinh.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.deNgaySinh.Size = new System.Drawing.Size(304, 20);
-            this.deNgaySinh.TabIndex = 11;
+            this.deNgaySinh.TabIndex = 5;
             // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(12, 102);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(48, 13);
-            this.labelControl4.TabIndex = 10;
+            this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = "Ngày Sinh";
             // 
             // btnClose
@@ -121,7 +140,7 @@
             this.btnClose.Location = new System.Drawing.Point(241, 286);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 13;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -130,7 +149,7 @@
             this.btnAdd.Location = new System.Drawing.Point(12, 286);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -139,7 +158,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 192);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(17, 13);
-            this.labelControl3.TabIndex = 5;
+            this.labelControl3.TabIndex = 8;
             this.labelControl3.Text = "Lớp";
             // 
             // txtHoTen
@@ -181,26 +200,7 @@
             this.cbbDanhSachLop.Properties.NullText = "";
             this.cbbDanhSachLop.Properties.PopupSizeable = false;
             this.cbbDanhSachLop.Size = new System.Drawing.Size(304, 20);
-            this.cbbDanhSachLop.TabIndex = 4;
-            // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(12, 237);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(40, 13);
-            this.labelControl6.TabIndex = 15;
-            this.labelControl6.Text = "Chức Vụ";
-            // 
-            // cbbQuyen
-            // 
-            this.cbbQuyen.Location = new System.Drawing.Point(12, 256);
-            this.cbbQuyen.Name = "cbbQuyen";
-            this.cbbQuyen.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbbQuyen.Properties.NullText = "";
-            this.cbbQuyen.Properties.PopupSizeable = false;
-            this.cbbQuyen.Size = new System.Drawing.Size(304, 20);
-            this.cbbQuyen.TabIndex = 14;
+            this.cbbDanhSachLop.TabIndex = 9;
             // 
             // FrmAddNewEditSinhVien
             // 
@@ -220,13 +220,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbQuyen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtQueQuan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHoTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMSSV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachLop.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbbQuyen.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

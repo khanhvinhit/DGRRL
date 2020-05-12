@@ -65,7 +65,7 @@
             this.btnClose.Location = new System.Drawing.Point(241, 147);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -74,7 +74,7 @@
             this.btnAdd.Location = new System.Drawing.Point(12, 147);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -83,14 +83,14 @@
             this.txtConfirmPassword.Location = new System.Drawing.Point(12, 121);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Size = new System.Drawing.Size(304, 20);
-            this.txtConfirmPassword.TabIndex = 7;
+            this.txtConfirmPassword.TabIndex = 5;
             // 
             // labelControl4
             // 
             this.labelControl4.Location = new System.Drawing.Point(12, 102);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(45, 13);
-            this.labelControl4.TabIndex = 6;
+            this.labelControl4.TabIndex = 4;
             this.labelControl4.Text = "Xác Nhận";
             // 
             // txtNewPassWord

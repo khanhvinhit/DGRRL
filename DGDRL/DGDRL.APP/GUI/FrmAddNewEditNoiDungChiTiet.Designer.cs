@@ -65,7 +65,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 192);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(85, 13);
-            this.labelControl3.TabIndex = 10;
+            this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Tiêu Chí Đánh Giá";
             // 
             // btnClose
@@ -73,7 +73,7 @@
             this.btnClose.Location = new System.Drawing.Point(241, 242);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -82,7 +82,7 @@
             this.btnAdd.Location = new System.Drawing.Point(12, 242);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -135,7 +135,7 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("NoiDung", "Nội Dung")});
             this.cbbDanhSachTC.Properties.NullText = "";
             this.cbbDanhSachTC.Size = new System.Drawing.Size(304, 20);
-            this.cbbDanhSachTC.TabIndex = 11;
+            this.cbbDanhSachTC.TabIndex = 5;
             // 
             // FrmAddNewEditNoiDungChiTiet
             // 

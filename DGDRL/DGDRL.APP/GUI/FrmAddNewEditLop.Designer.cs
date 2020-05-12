@@ -70,7 +70,7 @@
             this.labelControl4.Location = new System.Drawing.Point(12, 147);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(98, 13);
-            this.labelControl4.TabIndex = 11;
+            this.labelControl4.TabIndex = 6;
             this.labelControl4.Text = "Giáo Viên Chủ Nhiệm";
             // 
             // cbbGVCN
@@ -82,7 +82,7 @@
             this.cbbGVCN.Properties.NullText = "";
             this.cbbGVCN.Properties.PopupSizeable = false;
             this.cbbGVCN.Size = new System.Drawing.Size(304, 20);
-            this.cbbGVCN.TabIndex = 10;
+            this.cbbGVCN.TabIndex = 7;
             // 
             // btnClose
             // 
@@ -107,7 +107,7 @@
             this.labelControl3.Location = new System.Drawing.Point(12, 102);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(24, 13);
-            this.labelControl3.TabIndex = 5;
+            this.labelControl3.TabIndex = 4;
             this.labelControl3.Text = "Khoa";
             // 
             // txtTenLop
@@ -149,7 +149,7 @@
             this.cbbDanhSachKhoa.Properties.NullText = "";
             this.cbbDanhSachKhoa.Properties.PopupSizeable = false;
             this.cbbDanhSachKhoa.Size = new System.Drawing.Size(304, 20);
-            this.cbbDanhSachKhoa.TabIndex = 4;
+            this.cbbDanhSachKhoa.TabIndex = 5;
             // 
             // FrmAddNewEditLop
             // 

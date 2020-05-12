@@ -100,6 +100,27 @@ namespace DGDRL.APP.GUI
                 item.DiemMin = int.Parse(min);
                 item.DiemMax = int.Parse(max);
                 item.MaCT = tc;
+
+                var tcDAO = new LuaChonChiTietDAO();
+
+                var tcitem = tcDAO.GetByMaLC(tc);
+                var sum = dao.GetAllTieuChi(tc).Sum(x => x.DiemMax);
+                if (mode == 0)
+                {
+                    if (sum > tcitem.DiemMax)
+                    {
+                        XtraMessageBox.Show("Điểm nội dung chi tiết đã vượt điểm tiêu chí tối đa cho phép", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    sum = dao.GetAllTieuChi(tc).Where(x => x.MaCT != item.MaCT).Sum(x => x.DiemMax);
+                    if ((sum + item.DiemMax) > tcitem.DiemMax)
+                    {
+                        XtraMessageBox.Show("Điểm nội dung chi tiết đã vượt điểm tiêu chí tối đa cho phép", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
                 var res = dao.AddOrUpdate(item, mode);
                 if (res)
                 {

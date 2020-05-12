@@ -53,14 +53,14 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(328, 229);
-            this.panelControl1.TabIndex = 1;
+            this.panelControl1.TabIndex = 0;
             // 
             // btnClose
             // 
             this.btnClose.Location = new System.Drawing.Point(241, 192);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 9;
+            this.btnClose.TabIndex = 5;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -69,7 +69,7 @@
             this.btnAdd.Location = new System.Drawing.Point(12, 192);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 8;
+            this.btnAdd.TabIndex = 4;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -91,6 +91,11 @@
             // 
             // numDiem
             // 
+            this.numDiem.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
             this.numDiem.Location = new System.Drawing.Point(12, 166);
             this.numDiem.Name = "numDiem";
             this.numDiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
