@@ -77,17 +77,17 @@
     <Compile Include="DAO\SinhVienDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TieuChiDanhGiaDAO.cs" />
+    <Compile Include="GUI\FrmChangePassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmChangePassWord.Designer.cs">
+      <DependentUpon>FrmChangePassWord.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\usDanhSachDanhGiaDiemRenLuyen.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\usDanhSachDanhGiaDiemRenLuyen.Designer.cs">
       <DependentUpon>usDanhSachDanhGiaDiemRenLuyen.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\usDanhSachDoiMatKhau.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\usDanhSachDoiMatKhau.Designer.cs">
-      <DependentUpon>usDanhSachDoiMatKhau.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\usDanhSachThongTinCaNhan.cs">
       <SubType>UserControl</SubType>
@@ -204,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmAddNewEditSinhVien.resx">
       <DependentUpon>FrmAddNewEditSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmChangePassWord.resx">
+      <DependentUpon>FrmChangePassWord.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
