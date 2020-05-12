@@ -22,6 +22,10 @@ namespace DGDRL.APP.DAO
             }
             return _db.NoiDungChiTiets.Where(x => x.NoiDung.Contains(content)).ToList();
         }
+        public List<NoiDungChiTiet> GetAllTieuChi(int MaTC)
+        {
+            return _db.NoiDungChiTiets.Where(x => x.MaTC == MaTC).ToList();
+        }
 
         public List<NoiDungChiTiet> GetAllByMaKhoa(string TC, string content = "")
         {

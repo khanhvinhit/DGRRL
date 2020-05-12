@@ -79,6 +79,7 @@ namespace DGDRL.APP.GUI
                 bVali = false;
                 sErr = sErr + "Vui lòng chọn tiêu chí đánh giá";
             }
+
             if (bVali)
             {
                 var mode = 1;
@@ -90,6 +91,26 @@ namespace DGDRL.APP.GUI
                 item.NoiDung = nd;
                 item.DiemCTMax = int.Parse(max);
                 item.MaTC = tc;
+                var tcDAO = new TieuChiDanhGiaDAO();
+
+                var tcitem = tcDAO.GetByMaTC(tc);
+                var sum = dao.GetAllTieuChi(tc).Sum(x => x.DiemCTMax);
+                if (mode == 0)
+                {
+                    if (sum > tcitem.DiemTCMax)
+                    {
+                        XtraMessageBox.Show("Điểm nội dung chi tiết đã vượt điểm tiêu chí tối đa cho phép", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    sum = dao.GetAllTieuChi(tc).Where(x=>x.MaCT != item.MaCT).Sum(x => x.DiemCTMax);
+                    if ((sum + item.DiemCTMax) > tcitem.DiemTCMax)
+                    {
+                        XtraMessageBox.Show("Điểm nội dung chi tiết đã vượt điểm tiêu chí tối đa cho phép", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
                 var res = dao.AddOrUpdate(item, mode);
                 if (res)
                 {
