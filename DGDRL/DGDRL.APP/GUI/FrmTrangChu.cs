@@ -150,5 +150,10 @@ namespace DGDRL.APP.GUI
                 frmLogin.ShowDialog();
             }
         }
+
+        private void btnDiemLop_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(tabControlMain, "btnDiemLop.ImageOptions.SvgImage", "DiemLop", "Điểm Lớp", new usDiemLop());
+        }
     }
 }
