@@ -33,6 +33,8 @@ namespace DGDRL.APP.GUI
             if (item != null)
             {
                 txtNoiDung.Text = item.NoiDung;
+                txtMS.Text = item.MaTC.ToString();
+                txtMS.ReadOnly = true;
                 numDiem.Text = item.DiemTCMax.Value.ToString();
 
             }
@@ -45,8 +47,14 @@ namespace DGDRL.APP.GUI
 
             string sErr = "";
             bool bVali = true;
+            var maso = txtMS.Text;
             var nd = txtNoiDung.Text;
             var max = numDiem.Text;
+            if (string.IsNullOrEmpty(maso))
+            {
+                bVali = false;
+                sErr = sErr + "Vui lòng nhập mã";
+            }
             if (string.IsNullOrEmpty(nd))
             {
                 bVali = false;
@@ -64,6 +72,7 @@ namespace DGDRL.APP.GUI
                 {
                     item = new TieuChiDanhGia();
                     mode = 0;
+                    item.MaTC = int.Parse(maso);
                 }
                 item.NoiDung = nd;
                 item.DiemTCMax = int.Parse(max);

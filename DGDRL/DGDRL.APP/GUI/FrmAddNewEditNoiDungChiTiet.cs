@@ -42,6 +42,8 @@ namespace DGDRL.APP.GUI
             var item = dao.GetByMaCT(MaCT);
             if (item != null)
             {
+                txtMS.Text = item.MaCT.ToString();
+                txtMS.ReadOnly = true;
                 txtNoiDung.Text = item.NoiDung;
                 numDiem.Text = item.DiemCTMax.Value.ToString();
                 cbbDanhSachTC.EditValue = item.MaTC;
@@ -61,9 +63,15 @@ namespace DGDRL.APP.GUI
 
             string sErr = "";
             bool bVali = true;
+            var maso = txtMS.Text;
             var nd = txtNoiDung.Text;
             var max = numDiem.Text;
             var tc = (int)cbbDanhSachTC.EditValue;
+            if (string.IsNullOrEmpty(maso))
+            {
+                bVali = false;
+                sErr = sErr + "Vui lòng nhập mã";
+            }
             if (string.IsNullOrEmpty(nd))
             {
                 bVali = false;
@@ -87,6 +95,7 @@ namespace DGDRL.APP.GUI
                 {
                     item = new NoiDungChiTiet();
                     mode = 0;
+                    item.MaCT = int.Parse(maso);
                 }
                 item.NoiDung = nd;
                 item.DiemCTMax = int.Parse(max);

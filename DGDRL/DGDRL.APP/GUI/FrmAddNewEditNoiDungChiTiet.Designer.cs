@@ -37,15 +37,22 @@
             this.numDiem = new DevExpress.XtraEditors.SpinEdit();
             this.txtNoiDung = new DevExpress.XtraEditors.MemoEdit();
             this.cbbDanhSachTC = new DevExpress.XtraEditors.LookUpEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.txtMS = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numDiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachTC.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMS.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.labelControl4);
+            this.panelControl1.Controls.Add(this.labelControl5);
+            this.panelControl1.Controls.Add(this.txtMS);
             this.panelControl1.Controls.Add(this.labelControl3);
             this.panelControl1.Controls.Add(this.btnClose);
             this.panelControl1.Controls.Add(this.btnAdd);
@@ -57,12 +64,12 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(328, 278);
+            this.panelControl1.Size = new System.Drawing.Size(328, 330);
             this.panelControl1.TabIndex = 2;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 192);
+            this.labelControl3.Location = new System.Drawing.Point(12, 234);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(85, 13);
             this.labelControl3.TabIndex = 4;
@@ -70,7 +77,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(241, 242);
+            this.btnClose.Location = new System.Drawing.Point(241, 284);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 7;
@@ -79,7 +86,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 242);
+            this.btnAdd.Location = new System.Drawing.Point(12, 284);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 6;
@@ -88,7 +95,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 147);
+            this.labelControl2.Location = new System.Drawing.Point(12, 189);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(54, 13);
             this.labelControl2.TabIndex = 2;
@@ -96,7 +103,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
+            this.labelControl1.Location = new System.Drawing.Point(12, 54);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(43, 13);
             this.labelControl1.TabIndex = 0;
@@ -109,7 +116,7 @@
             0,
             0,
             0});
-            this.numDiem.Location = new System.Drawing.Point(12, 166);
+            this.numDiem.Location = new System.Drawing.Point(12, 208);
             this.numDiem.Name = "numDiem";
             this.numDiem.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -120,14 +127,14 @@
             // 
             // txtNoiDung
             // 
-            this.txtNoiDung.Location = new System.Drawing.Point(12, 31);
+            this.txtNoiDung.Location = new System.Drawing.Point(12, 73);
             this.txtNoiDung.Name = "txtNoiDung";
             this.txtNoiDung.Size = new System.Drawing.Size(304, 110);
             this.txtNoiDung.TabIndex = 1;
             // 
             // cbbDanhSachTC
             // 
-            this.cbbDanhSachTC.Location = new System.Drawing.Point(12, 211);
+            this.cbbDanhSachTC.Location = new System.Drawing.Point(12, 253);
             this.cbbDanhSachTC.Name = "cbbDanhSachTC";
             this.cbbDanhSachTC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -137,16 +144,41 @@
             this.cbbDanhSachTC.Size = new System.Drawing.Size(304, 20);
             this.cbbDanhSachTC.TabIndex = 5;
             // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(12, 12);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(18, 13);
+            this.labelControl4.TabIndex = 8;
+            this.labelControl4.Text = "STT";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(12, 56);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(43, 13);
+            this.labelControl5.TabIndex = 10;
+            this.labelControl5.Text = "Nội Dung";
+            // 
+            // txtMS
+            // 
+            this.txtMS.Location = new System.Drawing.Point(12, 31);
+            this.txtMS.Name = "txtMS";
+            this.txtMS.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.txtMS.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
+            this.txtMS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
+            this.txtMS.Size = new System.Drawing.Size(304, 20);
+            this.txtMS.TabIndex = 9;
+            // 
             // FrmAddNewEditNoiDungChiTiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(328, 278);
+            this.ClientSize = new System.Drawing.Size(328, 330);
             this.Controls.Add(this.panelControl1);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(330, 310);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(330, 310);
             this.Name = "FrmAddNewEditNoiDungChiTiet";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
@@ -158,6 +190,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numDiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachTC.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMS.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -173,5 +206,8 @@
         private DevExpress.XtraEditors.MemoEdit txtNoiDung;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LookUpEdit cbbDanhSachTC;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.SpinEdit txtMS;
     }
 }

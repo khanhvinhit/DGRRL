@@ -44,6 +44,8 @@ namespace DGDRL.APP.GUI
             var item = dao.GetByMaLC(MaLC);
             if (item != null)
             {
+                txtMS.Text = item.MaLC.ToString();
+                txtMS.ReadOnly = true;
                 txtNoiDung.Text = item.MoTa;
                 numDiemMin.Text = item.DiemMin.Value.ToString();
                 numDiemMin.Text = item.DiemMax.Value.ToString();
@@ -64,10 +66,16 @@ namespace DGDRL.APP.GUI
 
             string sErr = "";
             bool bVali = true;
+            var maso = txtMS.Text;
             var nd = txtNoiDung.Text;
             var min = numDiemMin.Text;
             var max = numDiemMax.Text;
             var tc = (int)cbbDanhSachTC.EditValue;
+            if (string.IsNullOrEmpty(maso))
+            {
+                bVali = false;
+                sErr = sErr + "Vui lòng nhập mã";
+            }
             if (string.IsNullOrEmpty(nd))
             {
                 bVali = false;
@@ -95,6 +103,7 @@ namespace DGDRL.APP.GUI
                 {
                     item = new LuaChonChiTiet();
                     mode = 0;
+                    item.MaLC = int.Parse(maso);
                 }
                 item.MoTa = nd;
                 item.DiemMin = int.Parse(min);
