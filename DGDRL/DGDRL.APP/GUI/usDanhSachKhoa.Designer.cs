@@ -30,114 +30,160 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usDanhSachKhoa));
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.griditem = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaKhoa_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.Button = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnAddNew = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.cbbDanhSachKhoa = new DevExpress.XtraEditors.CheckedComboBoxEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             this.TenKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.TenKhoa_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.MaKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.griditem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.griditem)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaKhoa_Edit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TenKhoa_Edit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachKhoa.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Controls.Add(this.gcDanhSach);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(935, 529);
-            this.panelControl1.TabIndex = 0;
             // 
             // gcDanhSach
             // 
             this.gcDanhSach.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gcDanhSach.ContextMenuStrip = this.contextMenuStrip2;
-            this.gcDanhSach.Location = new System.Drawing.Point(6, 3);
+            this.gcDanhSach.EmbeddedNavigator.Buttons.Edit.Enabled = false;
+            this.gcDanhSach.EmbeddedNavigator.Buttons.EndEdit.Enabled = false;
+            this.gcDanhSach.Location = new System.Drawing.Point(7, 99);
             this.gcDanhSach.MainView = this.griditem;
             this.gcDanhSach.Name = "gcDanhSach";
-            this.gcDanhSach.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.MaKhoa_Edit,
-            this.TenKhoa_Edit});
-            this.gcDanhSach.Size = new System.Drawing.Size(925, 521);
-            this.gcDanhSach.TabIndex = 2;
+            this.gcDanhSach.Size = new System.Drawing.Size(923, 425);
+            this.gcDanhSach.TabIndex = 1;
             this.gcDanhSach.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griditem});
-            this.gcDanhSach.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.gcDanhSach_ProcessGridKey);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddToolStripMenuItem,
-            this.DeleteToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 70);
-            // 
-            // AddToolStripMenuItem
-            // 
-            this.AddToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("AddToolStripMenuItem.Image")));
-            this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.AddToolStripMenuItem.Text = "Thêm";
-            this.AddToolStripMenuItem.Click += new System.EventHandler(this.AddToolStripMenuItem_Click);
-            // 
-            // DeleteToolStripMenuItem
-            // 
-            this.DeleteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("DeleteToolStripMenuItem.Image")));
-            this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
-            this.DeleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.DeleteToolStripMenuItem.Text = "Xóa";
-            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // griditem
             // 
             this.griditem.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.MaKhoa,
-            this.TenKhoa});
+            this.TenKhoa,
+            this.Button});
             this.griditem.GridControl = this.gcDanhSach;
             this.griditem.Name = "griditem";
+            this.griditem.OptionsBehavior.ReadOnly = true;
             this.griditem.OptionsView.ShowGroupPanel = false;
-            this.griditem.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gridItem_InvalidRowException);
-            this.griditem.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gridItem_ValidateRow);
             // 
-            // MaKhoa
+            // Button
             // 
-            this.MaKhoa.Caption = "Mã Khoa";
-            this.MaKhoa.ColumnEdit = this.MaKhoa_Edit;
-            this.MaKhoa.FieldName = "MaKhoa";
-            this.MaKhoa.Name = "MaKhoa";
-            this.MaKhoa.Visible = true;
-            this.MaKhoa.VisibleIndex = 0;
+            this.Button.FieldName = "Button";
+            this.Button.MaxWidth = 50;
+            this.Button.Name = "Button";
+            this.Button.Visible = true;
+            this.Button.VisibleIndex = 2;
+            this.Button.Width = 20;
             // 
-            // MaKhoa_Edit
+            // panelControl1
             // 
-            this.MaKhoa_Edit.AutoHeight = false;
-            this.MaKhoa_Edit.Name = "MaKhoa_Edit";
+            this.panelControl1.Controls.Add(this.groupControl1);
+            this.panelControl1.Controls.Add(this.gcDanhSach);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(935, 529);
+            this.panelControl1.TabIndex = 1;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.txtSearch);
+            this.groupControl1.Controls.Add(this.btnAddNew);
+            this.groupControl1.Controls.Add(this.btnSearch);
+            this.groupControl1.Controls.Add(this.cbbDanhSachKhoa);
+            this.groupControl1.Controls.Add(this.labelControl1);
+            this.groupControl1.Location = new System.Drawing.Point(7, 19);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(923, 74);
+            this.groupControl1.TabIndex = 0;
+            this.groupControl1.Text = "Tìm kiếm";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(216, 24);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(40, 13);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Tìm kiếm";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(216, 43);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(205, 21);
+            this.txtSearch.TabIndex = 3;
+            // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddNew.Location = new System.Drawing.Point(845, 43);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(75, 21);
+            this.btnAddNew.TabIndex = 5;
+            this.btnAddNew.Text = "Thêm mới";
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(427, 43);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 21);
+            this.btnSearch.TabIndex = 4;
+            this.btnSearch.Text = "Tìm kiếm";
+            // 
+            // cbbDanhSachKhoa
+            // 
+            this.cbbDanhSachKhoa.Location = new System.Drawing.Point(5, 43);
+            this.cbbDanhSachKhoa.Name = "cbbDanhSachKhoa";
+            this.cbbDanhSachKhoa.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbbDanhSachKhoa.Size = new System.Drawing.Size(205, 20);
+            this.cbbDanhSachKhoa.TabIndex = 1;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(5, 24);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(24, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Khoa";
+            // 
+            // imageCollection1
+            // 
+            this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
+            this.imageCollection1.Images.SetKeyName(0, "cancel_16x16.png");
             // 
             // TenKhoa
             // 
             this.TenKhoa.Caption = "Tên Khoa";
-            this.TenKhoa.ColumnEdit = this.TenKhoa_Edit;
             this.TenKhoa.FieldName = "TenKhoa";
             this.TenKhoa.Name = "TenKhoa";
             this.TenKhoa.Visible = true;
             this.TenKhoa.VisibleIndex = 1;
             // 
-            // TenKhoa_Edit
+            // MaKhoa
             // 
-            this.TenKhoa_Edit.AutoHeight = false;
-            this.TenKhoa_Edit.Name = "TenKhoa_Edit";
+            this.MaKhoa.Caption = "Mã Khoa";
+            this.MaKhoa.FieldName = "MaKhoa";
+            this.MaKhoa.Name = "MaKhoa";
+            this.MaKhoa.Visible = true;
+            this.MaKhoa.VisibleIndex = 0;
             // 
             // usDanhSachKhoa
             // 
@@ -147,28 +193,34 @@
             this.Controls.Add(this.panelControl1);
             this.Name = "usDanhSachKhoa";
             this.Size = new System.Drawing.Size(935, 529);
+            ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.griditem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).EndInit();
-            this.contextMenuStrip2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.griditem)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaKhoa_Edit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TenKhoa_Edit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbbDanhSachKhoa.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageCollection1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraGrid.Views.Grid.GridView griditem;
         private DevExpress.XtraGrid.Columns.GridColumn MaKhoa;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit MaKhoa_Edit;
         private DevExpress.XtraGrid.Columns.GridColumn TenKhoa;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit TenKhoa_Edit;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
-        private System.Windows.Forms.ToolStripMenuItem AddToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem DeleteToolStripMenuItem;
+        private DevExpress.XtraGrid.Columns.GridColumn Button;
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
+        private System.Windows.Forms.TextBox txtSearch;
+        private DevExpress.XtraEditors.SimpleButton btnAddNew;
+        private DevExpress.XtraEditors.SimpleButton btnSearch;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cbbDanhSachKhoa;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.Utils.ImageCollection imageCollection1;
     }
 }
