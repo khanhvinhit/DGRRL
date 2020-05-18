@@ -262,7 +262,7 @@
             // 
             this.barButtonItem2.Caption = "Đổi Mật Khẩu";
             this.barButtonItem2.Id = 10;
-            this.barButtonItem2.ImageOptions.SvgImage = global::DGDRL.APP.Properties.Resources.security_key;
+            //this.barButtonItem2.ImageOptions.SvgImage = global::DGDRL.APP.Properties.Resources.security_key;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barButtonItem4

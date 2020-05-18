@@ -90,6 +90,7 @@
             this.MaTC.OptionsColumn.ReadOnly = true;
             this.MaTC.Visible = true;
             this.MaTC.VisibleIndex = 0;
+            this.MaTC.Width = 98;
             // 
             // NoiDung
             // 
@@ -101,6 +102,7 @@
             this.NoiDung.OptionsColumn.ReadOnly = true;
             this.NoiDung.Visible = true;
             this.NoiDung.VisibleIndex = 1;
+            this.NoiDung.Width = 686;
             // 
             // DiemTCMax
             // 
@@ -112,6 +114,7 @@
             this.DiemTCMax.OptionsColumn.ReadOnly = true;
             this.DiemTCMax.Visible = true;
             this.DiemTCMax.VisibleIndex = 2;
+            this.DiemTCMax.Width = 98;
             // 
             // Button
             // 

@@ -36,6 +36,7 @@
             this.MaTC = new DevExpress.XtraGrid.Columns.GridColumn();
             this.NoiDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DiemCTMax = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.Button = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.cbbDanhSachTC = new DevExpress.XtraEditors.CheckedComboBoxEdit();
@@ -44,7 +45,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnAddNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.Button = new DevExpress.XtraGrid.Columns.GridColumn();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.griditem)).BeginInit();
@@ -95,6 +95,7 @@
             this.MaCT.OptionsColumn.ReadOnly = true;
             this.MaCT.Visible = true;
             this.MaCT.VisibleIndex = 0;
+            this.MaCT.Width = 95;
             // 
             // MaTC
             // 
@@ -116,6 +117,7 @@
             this.NoiDung.OptionsColumn.ReadOnly = true;
             this.NoiDung.Visible = true;
             this.NoiDung.VisibleIndex = 1;
+            this.NoiDung.Width = 500;
             // 
             // DiemCTMax
             // 
@@ -127,6 +129,15 @@
             this.DiemCTMax.OptionsColumn.ReadOnly = true;
             this.DiemCTMax.Visible = true;
             this.DiemCTMax.VisibleIndex = 2;
+            // 
+            // Button
+            // 
+            this.Button.FieldName = "Button";
+            this.Button.MaxWidth = 50;
+            this.Button.Name = "Button";
+            this.Button.Visible = true;
+            this.Button.VisibleIndex = 4;
+            this.Button.Width = 50;
             // 
             // panelControl1
             // 
@@ -204,15 +215,6 @@
             this.btnSearch.TabIndex = 4;
             this.btnSearch.Text = "Tìm kiếm";
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // Button
-            // 
-            this.Button.FieldName = "Button";
-            this.Button.MaxWidth = 50;
-            this.Button.Name = "Button";
-            this.Button.Visible = true;
-            this.Button.VisibleIndex = 4;
-            this.Button.Width = 50;
             // 
             // imageCollection1
             // 

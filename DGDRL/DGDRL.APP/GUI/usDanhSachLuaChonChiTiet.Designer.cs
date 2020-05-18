@@ -118,6 +118,7 @@
             this.MoTa.OptionsColumn.ReadOnly = true;
             this.MoTa.Visible = true;
             this.MoTa.VisibleIndex = 2;
+            this.MoTa.Width = 500;
             // 
             // DiemMin
             // 
