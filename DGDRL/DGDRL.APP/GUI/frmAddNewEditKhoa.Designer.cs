@@ -62,6 +62,7 @@
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
@@ -70,6 +71,7 @@
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtTenKhoa
             // 

@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usDanhSachKhoa));
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.griditem = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.MaKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.TenKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Button = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -42,8 +44,6 @@
             this.cbbDanhSachKhoa = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.imageCollection1 = new DevExpress.Utils.ImageCollection(this.components);
-            this.TenKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MaKhoa = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.gcDanhSach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.griditem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -79,6 +79,22 @@
             this.griditem.Name = "griditem";
             this.griditem.OptionsBehavior.ReadOnly = true;
             this.griditem.OptionsView.ShowGroupPanel = false;
+            // 
+            // MaKhoa
+            // 
+            this.MaKhoa.Caption = "Mã Khoa";
+            this.MaKhoa.FieldName = "MaKhoa";
+            this.MaKhoa.Name = "MaKhoa";
+            this.MaKhoa.Visible = true;
+            this.MaKhoa.VisibleIndex = 0;
+            // 
+            // TenKhoa
+            // 
+            this.TenKhoa.Caption = "Tên Khoa";
+            this.TenKhoa.FieldName = "TenKhoa";
+            this.TenKhoa.Name = "TenKhoa";
+            this.TenKhoa.Visible = true;
+            this.TenKhoa.VisibleIndex = 1;
             // 
             // Button
             // 
@@ -138,6 +154,7 @@
             this.btnAddNew.Size = new System.Drawing.Size(75, 21);
             this.btnAddNew.TabIndex = 5;
             this.btnAddNew.Text = "Thêm mới";
+            this.btnAddNew.Click += new System.EventHandler(this.btnAddNew_Click);
             // 
             // btnSearch
             // 
@@ -168,22 +185,6 @@
             // 
             this.imageCollection1.ImageStream = ((DevExpress.Utils.ImageCollectionStreamer)(resources.GetObject("imageCollection1.ImageStream")));
             this.imageCollection1.Images.SetKeyName(0, "cancel_16x16.png");
-            // 
-            // TenKhoa
-            // 
-            this.TenKhoa.Caption = "Tên Khoa";
-            this.TenKhoa.FieldName = "TenKhoa";
-            this.TenKhoa.Name = "TenKhoa";
-            this.TenKhoa.Visible = true;
-            this.TenKhoa.VisibleIndex = 1;
-            // 
-            // MaKhoa
-            // 
-            this.MaKhoa.Caption = "Mã Khoa";
-            this.MaKhoa.FieldName = "MaKhoa";
-            this.MaKhoa.Name = "MaKhoa";
-            this.MaKhoa.Visible = true;
-            this.MaKhoa.VisibleIndex = 0;
             // 
             // usDanhSachKhoa
             // 
