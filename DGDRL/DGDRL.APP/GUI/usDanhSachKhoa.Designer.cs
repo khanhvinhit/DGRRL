@@ -100,6 +100,22 @@
             this.TenKhoa.Visible = true;
             this.TenKhoa.VisibleIndex = 1;
             // 
+            // MaKhoa
+            // 
+            this.MaKhoa.Caption = "Mã Khoa";
+            this.MaKhoa.FieldName = "MaKhoa";
+            this.MaKhoa.Name = "MaKhoa";
+            this.MaKhoa.Visible = true;
+            this.MaKhoa.VisibleIndex = 0;
+            // 
+            // TenKhoa
+            // 
+            this.TenKhoa.Caption = "Tên Khoa";
+            this.TenKhoa.FieldName = "TenKhoa";
+            this.TenKhoa.Name = "TenKhoa";
+            this.TenKhoa.Visible = true;
+            this.TenKhoa.VisibleIndex = 1;
+            // 
             // Button
             // 
             this.Button.FieldName = "Button";
