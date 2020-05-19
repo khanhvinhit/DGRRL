@@ -128,7 +128,7 @@ namespace DGDRL.APP.GUI
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
-            AddTab(tabControlMain, "btnDanhGiaDiemRenLuyen.ImageOptions.SvgImage", "DanhGiaDiemRenLuyen", "Đánh Giá Điểm Rèn Luyện", new usDanhSachDanhGiaDiemRenLuyen());
+            AddTab(tabControlMain, "btnDanhGiaDiemRenLuyen.ImageOptions.SvgImage", "DanhGiaDiemRenLuyen", "Đánh Giá Điểm Rèn Luyện", new usDanhSachDanhGiaDiemRenLuyen(Username.Username));
         }
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)

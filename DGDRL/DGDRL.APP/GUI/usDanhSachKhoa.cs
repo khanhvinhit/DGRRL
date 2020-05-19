@@ -24,36 +24,16 @@ namespace DGDRL.APP.GUI
         public usDanhSachKhoa()
         {
             InitializeComponent();
-            LoadKhoa();
             LoadDanhSachKhoa();
-            dt.Columns.Add("TenKhoa");
+            AddRepository();
         }
-        public void LoadKhoa()
-        {
-            var dao = new KhoaDAO();
-            var lst = dao.GetAll();
-            cbbDanhSachKhoa.Properties.DataSource = lst;
-            cbbDanhSachKhoa.Properties.ValueMember = "MaKhoa";
-            cbbDanhSachKhoa.Properties.DisplayMember = "TenKhoa";
-        }
-
         public void LoadDanhSachKhoa()
         {
             gcDanhSach.DataSource = null;
             gcDanhSach.Controls.Clear();
             var dao = new KhoaDAO();
-            var lst = new List<Khoa>();
-            var ids = string.Join(",", cbbDanhSachKhoa.Properties.Items.GetCheckedValues());
             var ser = txtSearch.Text;
-            //if (string.IsNullOrEmpty(ids))
-            //{
-            //    lst = dao.GetAll(ser);
-            //}
-            //else
-            //{
-            //    lst = dao.GetAllByMaKhoa(ids, ser);
-            //}
-
+            var lst = dao.GetAll(ser);
             gcDanhSach.DataSource = lst;
         }
         private void AddRepository()
@@ -76,12 +56,11 @@ namespace DGDRL.APP.GUI
                 if (res)
                 {
                     XtraMessageBox.Show("Xóa thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadKhoa();
+                    LoadDanhSachKhoa();
                 }
                 else
                 {
                     XtraMessageBox.Show("Xóa lỗi", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
 
             }
@@ -120,8 +99,8 @@ namespace DGDRL.APP.GUI
             GridHitInfo info = view.CalcHitInfo(ea.Location);
             if (info.InRow || info.InRowCell)
             {
-                var item = griditem.GetRow(info.RowHandle) as GiangVien;
-                ShowFormAdd(item.MaGV);
+                var item = griditem.GetRow(info.RowHandle) as Khoa;
+                ShowFormAdd(item.MaKhoa);
             }
         }
 

@@ -18,6 +18,10 @@ namespace DGDRL.APP.DAO
         {
             return _db.DGRenLuyens.ToList();
         }
+        public List<DGRenLuyen> GetAllByMSSV(string masv, int NamHoc, string HocKy)
+        {
+            return _db.DGRenLuyens.Where(x=>x.MSSV == masv && x.NamHoc == NamHoc && x.MaHK == HocKy).ToList();
+        }
 
         public bool AddOrUpdate(DGRenLuyen item, int mode)
         {

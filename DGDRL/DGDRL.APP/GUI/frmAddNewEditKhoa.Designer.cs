@@ -52,24 +52,26 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(327, 178);
+            this.panelControl1.Size = new System.Drawing.Size(327, 137);
             this.panelControl1.TabIndex = 1;
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(240, 129);
+            this.btnClose.Location = new System.Drawing.Point(240, 102);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Đóng";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(11, 129);
+            this.btnAdd.Location = new System.Drawing.Point(11, 102);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 8;
             this.btnAdd.Text = "Thêm";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtTenKhoa
             // 
@@ -105,9 +107,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 178);
+            this.ClientSize = new System.Drawing.Size(327, 137);
             this.Controls.Add(this.panelControl1);
+            this.MaximumSize = new System.Drawing.Size(329, 169);
+            this.MinimumSize = new System.Drawing.Size(329, 169);
             this.Name = "frmAddNewEditKhoa";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddNewEditKhoa";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);

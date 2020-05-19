@@ -18,6 +18,14 @@ namespace DGDRL.APP.DAO
         {
             return _db.Khoas.ToList();
         }
+        public List<Khoa> GetAll(string content = "")
+        {
+            if (string.IsNullOrEmpty(content))
+            {
+                return _db.Khoas.ToList();
+            }
+            return _db.Khoas.Where(x => x.MaKhoa.Contains(content) || x.TenKhoa.Contains(content)).ToList();
+        }
 
         public bool AddOrUpdate(Khoa item, int mode)
         {

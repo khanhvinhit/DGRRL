@@ -33,6 +33,7 @@ namespace DGDRL.APP.GUI
             if (item != null)
             {
                 txtMaKhoa.ReadOnly = true;
+                txtMaKhoa.Text = item.MaKhoa;
                 txtTenKhoa.Text = item.TenKhoa;
 
             }
@@ -67,7 +68,7 @@ namespace DGDRL.APP.GUI
                 if (check != null)
                 {
                     bVali = false;
-                    sErr = sErr + "Mã giảng viên đã tồn tại";
+                    sErr = sErr + "Mã khoa đã tồn tại";
                 }
             }
             if (bVali)
