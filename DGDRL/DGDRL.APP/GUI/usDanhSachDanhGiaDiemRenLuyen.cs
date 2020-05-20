@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using DGDRL.APP.DAO;
 using DGDRL.Model.DTO;
 using DevExpress.XtraEditors;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid;
+using DevExpress.Data;
 
 namespace DGDRL.APP.GUI
 {
@@ -46,7 +49,7 @@ namespace DGDRL.APP.GUI
             cbbNamHoc.Properties.DataSource = lst;
             cbbNamHoc.Properties.ValueMember = "Key";
             cbbNamHoc.Properties.DisplayMember = "Value";
-            cbbNamHoc.EditValue = (DateTime.Now.Year + "-"+ DateTime.Now.AddYears(1).Year);
+            cbbNamHoc.EditValue = (DateTime.Now.Year + "-" + DateTime.Now.AddYears(1).Year);
         }
         public void loadNoiDung()
         {
@@ -59,7 +62,7 @@ namespace DGDRL.APP.GUI
             }
             else if (string.IsNullOrEmpty(namhoc))
             {
-                XtraMessageBox.Show("Vui lòng chọn năm học", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                XtraMessageBox.Show("Vui lòng chọn năm học", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -85,9 +88,11 @@ namespace DGDRL.APP.GUI
                                 join b in lstrenluyen on a.MaLC equals b.MaLC
                                 select new
                                 {
-                                    a.ID,
-                                    b.MaLC,
-                                    b.NoiDungLC,
+                                    a.ID ,
+                                    NoiDungTC = (b.MaTC.ToString().Length >= 2) ? b.MaTC + ": " + b.NoiDungTC :b.MaTC + ": " + b.NoiDungTC,
+                                    NoiDungCT = (b.MaCT.ToString().Length >= 2) ? "0" + b.MaCT + ": "+ b.NoiDungCT: "00" + b.MaCT + ": " + b.NoiDungCT,
+                                    NoiDungLC = (a.MaLC.ToString().Length >= 2) ? "0" + a.MaLC + ": " + b.NoiDungLC : "00" + a.MaLC + ": " + b.NoiDungLC,
+                                    b.DiemTCMax,
                                     b.DiemMax,
                                     a.DiemSVDG,
                                     a.DiemLT,
@@ -96,12 +101,32 @@ namespace DGDRL.APP.GUI
 
                 gcDanhSach.DataSource = lstsource;
             }
-            
+
         }
 
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             loadNoiDung();
+            //Show group columns in the table.
+            griditem.OptionsView.ShowGroupedColumns = true;
+
+            // Expand group rows.
+            griditem.ExpandAllGroups();
+            //GridColumn colReceived = griditem.Columns["NoiDungTC"];
+            //GridColumn colRead = griditem.Columns["NoiDungCT"];
+            //griditem.BeginSort();
+            //try
+            //{
+            //    griditem.ClearGrouping();
+            //    colReceived.Width = 500;
+            //    colReceived.GroupIndex = 0;
+            //    colRead.Width = 500;
+            //    colRead.GroupIndex = 1;
+            //}
+            //finally
+            //{
+            //    griditem.EndSort();
+            //}
         }
     }
 }
