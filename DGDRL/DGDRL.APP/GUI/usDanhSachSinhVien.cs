@@ -76,7 +76,7 @@ namespace DGDRL.APP.GUI
                 if (res)
                 {
                     XtraMessageBox.Show("Xóa thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadDanhSachLop();
+                    LoadDanhSachSV();
                 }
                 else
                 {

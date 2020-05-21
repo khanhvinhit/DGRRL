@@ -77,11 +77,23 @@
     <Compile Include="DAO\SinhVienDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="DAO\TieuChiDanhGiaDAO.cs" />
+    <Compile Include="GUI\frmAddNewEditKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmAddNewEditKhoa.Designer.cs">
+      <DependentUpon>frmAddNewEditKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmChangePassWord.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FrmChangePassWord.Designer.cs">
       <DependentUpon>FrmChangePassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmUpdateDiemLop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmUpdateDiemLop.Designer.cs">
+      <DependentUpon>FrmUpdateDiemLop.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\usDanhSachDanhGiaDiemRenLuyen.cs">
       <SubType>UserControl</SubType>
@@ -185,6 +197,12 @@
     <Compile Include="GUI\usDanhSachTieuChiDanhGia.Designer.cs">
       <DependentUpon>usDanhSachTieuChiDanhGia.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\usDiemLop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\usDiemLop.Designer.cs">
+      <DependentUpon>usDiemLop.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmAddNewEditCTDG.resx">
@@ -192,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmAddNewEditGiangVien.resx">
       <DependentUpon>FrmAddNewEditGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmAddNewEditKhoa.resx">
+      <DependentUpon>frmAddNewEditKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmAddNewEditLop.resx">
       <DependentUpon>FrmAddNewEditLop.cs</DependentUpon>
@@ -213,6 +234,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTrangChu.resx">
       <DependentUpon>FrmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmUpdateDiemLop.resx">
+      <DependentUpon>FrmUpdateDiemLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\usDanhSachDanhGiaDiemRenLuyen.resx">
+      <DependentUpon>usDanhSachDanhGiaDiemRenLuyen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\usDanhSachGiangVien.resx">
       <DependentUpon>usDanhSachGiangVien.cs</DependentUpon>
@@ -237,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\usDanhSachTieuChiDanhGia.resx">
       <DependentUpon>usDanhSachTieuChiDanhGia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\usDiemLop.resx">
+      <DependentUpon>usDiemLop.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

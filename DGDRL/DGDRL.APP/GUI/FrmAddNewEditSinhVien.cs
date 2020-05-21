@@ -119,6 +119,7 @@ namespace DGDRL.APP.GUI
                 }
                 item.HoTen = ten;
                 item.QueQuan = que;
+                ngay = ngay.Split('/')[2] + "/" + ngay.Split('/')[0] + "/" + ngay.Split('/')[1];
                 item.NgaySinh = DateTime.Parse(ngay);
                 item.MaLop = lop;
                 var res = dao.AddOrUpdate(item, mode);

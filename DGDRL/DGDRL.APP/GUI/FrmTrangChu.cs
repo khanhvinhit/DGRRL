@@ -153,7 +153,7 @@ namespace DGDRL.APP.GUI
 
         private void btnDiemLop_ItemClick(object sender, ItemClickEventArgs e)
         {
-            AddTab(tabControlMain, "btnDiemLop.ImageOptions.SvgImage", "DiemLop", "Điểm Lớp", new usDiemLop());
+            AddTab(tabControlMain, "btnDiemLop.ImageOptions.SvgImage", "DiemLop", "Điểm Lớp", new usDiemLop(Username));
         }
     }
 }

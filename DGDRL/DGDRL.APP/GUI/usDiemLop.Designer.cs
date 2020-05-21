@@ -34,21 +34,21 @@
             this.TenKhoa_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.MaKhoa_Edit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.GhiChu = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.GVDiem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-            this.LTDiem = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.SVDiem = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.MucDiem = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.NoiDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.STT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.griditem = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.DiemThuc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MSSV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.HoTen = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NgaySinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DiemSVDG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DiemLT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DiemCVHT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cbbHocKy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbNamHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenKhoa_Edit)).BeginInit();
@@ -106,14 +106,7 @@
             this.GhiChu.Name = "GhiChu";
             this.GhiChu.Visible = true;
             this.GhiChu.VisibleIndex = 7;
-            // 
-            // GVDiem
-            // 
-            this.GVDiem.Caption = "Điểm CVHT";
-            this.GVDiem.FieldName = "GVDiem";
-            this.GVDiem.Name = "GVDiem";
-            this.GVDiem.Visible = true;
-            this.GVDiem.VisibleIndex = 6;
+            this.GhiChu.Width = 50;
             // 
             // labelControl6
             // 
@@ -123,68 +116,99 @@
             this.labelControl6.TabIndex = 12;
             this.labelControl6.Text = "Năm Học";
             // 
-            // LTDiem
-            // 
-            this.LTDiem.Caption = "Điểm Lớp Trưởng";
-            this.LTDiem.FieldName = "LTDiem";
-            this.LTDiem.Name = "LTDiem";
-            this.LTDiem.Visible = true;
-            this.LTDiem.VisibleIndex = 5;
-            // 
-            // SVDiem
-            // 
-            this.SVDiem.Caption = "Sinh Viên Đánh Giá";
-            this.SVDiem.FieldName = "SVDiem";
-            this.SVDiem.Name = "SVDiem";
-            this.SVDiem.Visible = true;
-            this.SVDiem.VisibleIndex = 3;
-            // 
-            // MucDiem
-            // 
-            this.MucDiem.Caption = "Mức Điểm";
-            this.MucDiem.FieldName = "MucDiem";
-            this.MucDiem.Name = "MucDiem";
-            this.MucDiem.Visible = true;
-            this.MucDiem.VisibleIndex = 2;
-            // 
-            // NoiDung
-            // 
-            this.NoiDung.Caption = "Nội Dung";
-            this.NoiDung.FieldName = "NoiDung";
-            this.NoiDung.Name = "NoiDung";
-            this.NoiDung.Visible = true;
-            this.NoiDung.VisibleIndex = 1;
-            // 
             // STT
             // 
             this.STT.Caption = "STT";
             this.STT.FieldName = "STT";
             this.STT.Name = "STT";
+            this.STT.OptionsColumn.AllowEdit = false;
+            this.STT.OptionsColumn.AllowFocus = false;
             this.STT.Visible = true;
             this.STT.VisibleIndex = 0;
+            this.STT.Width = 50;
             // 
             // griditem
             // 
             this.griditem.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.STT,
-            this.NoiDung,
-            this.MucDiem,
-            this.SVDiem,
-            this.DiemThuc,
-            this.LTDiem,
-            this.GVDiem,
+            this.MSSV,
+            this.HoTen,
+            this.NgaySinh,
+            this.DiemSVDG,
+            this.DiemLT,
+            this.DiemCVHT,
             this.GhiChu});
             this.griditem.GridControl = this.gcDanhSach;
             this.griditem.Name = "griditem";
             this.griditem.OptionsView.ShowGroupPanel = false;
             // 
-            // DiemThuc
+            // MSSV
             // 
-            this.DiemThuc.Caption = "Điểm Thực";
-            this.DiemThuc.FieldName = "DiemThuc";
-            this.DiemThuc.Name = "DiemThuc";
-            this.DiemThuc.Visible = true;
-            this.DiemThuc.VisibleIndex = 4;
+            this.MSSV.Caption = "MSSV";
+            this.MSSV.FieldName = "MSSV";
+            this.MSSV.Name = "MSSV";
+            this.MSSV.OptionsColumn.AllowEdit = false;
+            this.MSSV.OptionsColumn.AllowFocus = false;
+            this.MSSV.Visible = true;
+            this.MSSV.VisibleIndex = 1;
+            this.MSSV.Width = 101;
+            // 
+            // HoTen
+            // 
+            this.HoTen.Caption = "Họ Tên";
+            this.HoTen.FieldName = "HoTen";
+            this.HoTen.Name = "HoTen";
+            this.HoTen.OptionsColumn.AllowEdit = false;
+            this.HoTen.OptionsColumn.AllowFocus = false;
+            this.HoTen.Visible = true;
+            this.HoTen.VisibleIndex = 2;
+            this.HoTen.Width = 101;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.Caption = "Ngày Sinh";
+            this.NgaySinh.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.NgaySinh.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.NgaySinh.FieldName = "NgaySinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.OptionsColumn.AllowEdit = false;
+            this.NgaySinh.OptionsColumn.AllowFocus = false;
+            this.NgaySinh.Visible = true;
+            this.NgaySinh.VisibleIndex = 3;
+            this.NgaySinh.Width = 101;
+            // 
+            // DiemSVDG
+            // 
+            this.DiemSVDG.Caption = "Điểm Sinh Viên";
+            this.DiemSVDG.FieldName = "DiemSVDG";
+            this.DiemSVDG.Name = "DiemSVDG";
+            this.DiemSVDG.OptionsColumn.AllowEdit = false;
+            this.DiemSVDG.OptionsColumn.AllowFocus = false;
+            this.DiemSVDG.Visible = true;
+            this.DiemSVDG.VisibleIndex = 4;
+            this.DiemSVDG.Width = 101;
+            // 
+            // DiemLT
+            // 
+            this.DiemLT.Caption = "Điểm Lớp Trưởng";
+            this.DiemLT.FieldName = "DiemLT";
+            this.DiemLT.Name = "DiemLT";
+            this.DiemLT.OptionsColumn.AllowEdit = false;
+            this.DiemLT.OptionsColumn.AllowFocus = false;
+            this.DiemLT.Visible = true;
+            this.DiemLT.VisibleIndex = 5;
+            this.DiemLT.Width = 101;
+            // 
+            // DiemCVHT
+            // 
+            this.DiemCVHT.Caption = "Điểm Giáo Viên";
+            this.DiemCVHT.FieldName = "DiemCVHT";
+            this.DiemCVHT.Name = "DiemCVHT";
+            this.DiemCVHT.OptionsColumn.AllowEdit = false;
+            this.DiemCVHT.OptionsColumn.AllowFocus = false;
+            this.DiemCVHT.Visible = true;
+            this.DiemCVHT.VisibleIndex = 6;
+            this.DiemCVHT.Width = 101;
             // 
             // gcDanhSach
             // 
@@ -205,7 +229,7 @@
             // panelControl1
             // 
             this.panelControl1.Controls.Add(this.simpleButton3);
-            this.panelControl1.Controls.Add(this.simpleButton1);
+            this.panelControl1.Controls.Add(this.btnLoad);
             this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.btnAdd);
             this.panelControl1.Controls.Add(this.gcDanhSach);
@@ -219,23 +243,24 @@
             this.panelControl1.Size = new System.Drawing.Size(796, 485);
             this.panelControl1.TabIndex = 1;
             // 
-            // btnAdd
+            // simpleButton3
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(635, 52);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 15;
-            this.btnAdd.Text = "Chuyển Điểm";
+            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.simpleButton3.Location = new System.Drawing.Point(482, 52);
+            this.simpleButton3.Name = "simpleButton3";
+            this.simpleButton3.Size = new System.Drawing.Size(147, 23);
+            this.simpleButton3.TabIndex = 16;
+            this.simpleButton3.Text = "Chuyển Điểm Của Sinh Vien";
             // 
-            // simpleButton1
+            // btnLoad
             // 
-            this.simpleButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton1.Location = new System.Drawing.Point(716, 52);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton1.TabIndex = 16;
-            this.simpleButton1.Text = "Làm Mới";
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLoad.Location = new System.Drawing.Point(716, 52);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(75, 23);
+            this.btnLoad.TabIndex = 16;
+            this.btnLoad.Text = "Làm Mới";
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // simpleButton2
             // 
@@ -246,14 +271,14 @@
             this.simpleButton2.TabIndex = 15;
             this.simpleButton2.Text = "Chuyển Điểm Lớp Trưởng";
             // 
-            // simpleButton3
+            // btnAdd
             // 
-            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton3.Location = new System.Drawing.Point(482, 52);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(147, 23);
-            this.simpleButton3.TabIndex = 16;
-            this.simpleButton3.Text = "Chuyển Điểm Của Sinh Vien";
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAdd.Location = new System.Drawing.Point(635, 52);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.TabIndex = 15;
+            this.btnAdd.Text = "Chuyển Điểm";
             // 
             // usDiemLop
             // 
@@ -283,20 +308,20 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit TenKhoa_Edit;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit MaKhoa_Edit;
         private DevExpress.XtraGrid.Columns.GridColumn GhiChu;
-        private DevExpress.XtraGrid.Columns.GridColumn GVDiem;
         private DevExpress.XtraEditors.LabelControl labelControl6;
-        private DevExpress.XtraGrid.Columns.GridColumn LTDiem;
-        private DevExpress.XtraGrid.Columns.GridColumn SVDiem;
-        private DevExpress.XtraGrid.Columns.GridColumn MucDiem;
-        private DevExpress.XtraGrid.Columns.GridColumn NoiDung;
         private DevExpress.XtraGrid.Columns.GridColumn STT;
         private DevExpress.XtraGrid.Views.Grid.GridView griditem;
-        private DevExpress.XtraGrid.Columns.GridColumn DiemThuc;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnLoad;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraGrid.Columns.GridColumn MSSV;
+        private DevExpress.XtraGrid.Columns.GridColumn HoTen;
+        private DevExpress.XtraGrid.Columns.GridColumn NgaySinh;
+        private DevExpress.XtraGrid.Columns.GridColumn DiemSVDG;
+        private DevExpress.XtraGrid.Columns.GridColumn DiemLT;
+        private DevExpress.XtraGrid.Columns.GridColumn DiemCVHT;
     }
 }
