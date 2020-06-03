@@ -22,7 +22,7 @@ namespace DGDRL.APP.DAO
             }
             return _db.LuaChonChiTiets.Where(x => x.MoTa.Contains(content)).ToList();
         }
-        public List<LuaChonChiTiet> GetAllTieuChi(int MaCT)
+        public List<LuaChonChiTiet> GetAllLuaChon(int MaCT)
         {
             return _db.LuaChonChiTiets.Where(x => x.MaCT == MaCT).ToList();
         }

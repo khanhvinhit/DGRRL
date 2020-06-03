@@ -113,7 +113,7 @@ namespace DGDRL.APP.GUI
                 var tcDAO = new LuaChonChiTietDAO();
 
                 var tcitem = tcDAO.GetByMaLC(tc);
-                var sum = dao.GetAllTieuChi(tc).Sum(x => x.DiemMax);
+                var sum = dao.GetAllLuaChon(tc).Sum(x => x.DiemMax);
                 if (mode == 0)
                 {
                     if (sum > tcitem.DiemMax)
@@ -123,7 +123,7 @@ namespace DGDRL.APP.GUI
                 }
                 else
                 {
-                    sum = dao.GetAllTieuChi(tc).Where(x => x.MaCT != item.MaCT).Sum(x => x.DiemMax);
+                    sum = dao.GetAllLuaChon(tc).Where(x => x.MaCT != item.MaCT).Sum(x => x.DiemMax);
                     if ((sum + item.DiemMax) > tcitem.DiemMax)
                     {
                         XtraMessageBox.Show("Điểm nội dung chi tiết đã vượt điểm tiêu chí tối đa cho phép", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);

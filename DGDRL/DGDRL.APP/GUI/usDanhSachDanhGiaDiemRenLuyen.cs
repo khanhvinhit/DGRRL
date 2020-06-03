@@ -13,6 +13,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid;
 using DevExpress.Data;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace DGDRL.APP.GUI
 {
@@ -53,7 +54,6 @@ namespace DGDRL.APP.GUI
         }
         public void loadNoiDung()
         {
-            var dao = new DiemDanhGiaRenLuyenDAO();
             var hocky = cbbHocKy.EditValue as string;
             var namhoc = cbbNamHoc.EditValue as string;
             if (string.IsNullOrEmpty(hocky))
@@ -66,6 +66,73 @@ namespace DGDRL.APP.GUI
             }
             else
             {
+
+                var dao = new TieuChiDanhGiaDAO();
+                var lstall = dao.GetAll().Select(x => new { x.MaTC, NoiDungTC = x.NoiDung, x.DiemTCMax }).ToList();
+                gvDGRL.DataSource = lstall;                
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            loadNoiDung();
+        }
+
+        private void gvTieuChiDanhGia_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
+        {
+            var dao = new NoiDungChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                var lst = dao.GetAllTieuChi(tcdg.MaTC) as List<NoiDungChiTiet>;
+                e.IsEmpty = lst.Count <= 0;
+            }
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
+        {
+            var dao = new NoiDungChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                e.ChildList = dao.GetAllTieuChi(tcdg.MaTC);
+            }
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "NoiDungChiTiet";
+        }
+
+        private void gvNoiDungChiTiet_MasterRowEmpty(object sender, MasterRowEmptyEventArgs e)
+        {
+            var dao = new LuaChonChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                var lst = dao.GetAllLuaChon(tcdg.MaCT) as List<LuaChonChiTiet>;
+                e.IsEmpty = lst.Count <= 0;
+            }
+        }
+
+        private void gvNoiDungChiTiet_MasterRowGetChildList(object sender, MasterRowGetChildListEventArgs e)
+        {
+            var dao = new DiemDanhGiaRenLuyenDAO();
+            var daob = new LuaChonChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                var hocky = cbbHocKy.EditValue as string;
+                var namhoc = cbbNamHoc.EditValue as string;
                 int namhoc2 = int.Parse(namhoc.Split('-')[0].ToString());
                 var lst = dao.GetAllByMSSV(MSSV, namhoc2, hocky);
                 var lstrenluyen = dao._db.ViewLuaChonChiTiets.ToList();
@@ -83,50 +150,64 @@ namespace DGDRL.APP.GUI
                     }
                     lst = dao.GetAllByMSSV(MSSV, namhoc2, hocky);
                 }
-
-                var lstsource = from a in lst
-                                join b in lstrenluyen on a.MaLC equals b.MaLC
+                var lc = daob.GetAllLuaChon(tcdg.MaCT) as List<LuaChonChiTiet>;
+                var lstsource = from a in lst.Where(x => lc.Any(y => y.MaLC == x.MaLC))
+                                join b in lc on a.MaLC equals b.MaLC
                                 select new
                                 {
-                                    a.ID ,
-                                    NoiDungTC = (b.MaTC.ToString().Length >= 2) ? b.MaTC + ": " + b.NoiDungTC :b.MaTC + ": " + b.NoiDungTC,
-                                    NoiDungCT = (b.MaCT.ToString().Length >= 2) ? "0" + b.MaCT + ": "+ b.NoiDungCT: "00" + b.MaCT + ": " + b.NoiDungCT,
-                                    NoiDungLC = (a.MaLC.ToString().Length >= 2) ? "0" + a.MaLC + ": " + b.NoiDungLC : "00" + a.MaLC + ": " + b.NoiDungLC,
-                                    b.DiemTCMax,
-                                    b.DiemMax,
-                                    a.DiemSVDG,
-                                    a.DiemLT,
-                                    a.DiemCVHT
+                                    b.MaLC,
+                                    b.MoTa,
+                                    DiemTT = b.DiemMin,
+                                    DiemTD = b.DiemMax,
+                                    DiemSV = a.DiemSVDG,
+                                    DiemLTT = a.DiemLT,
+                                    DiemGV = a.DiemCVHT
                                 };
-
-                gcDanhSach.DataSource = lstsource;
+                e.ChildList = lstsource.ToList();
+                //if (lst.Any(x=>x.DiemCVHT != null))
+                //{
+                //    this.DiemSV.OptionsColumn.AllowEdit = false;
+                //    this.DiemSV.OptionsColumn.AllowFocus = false;
+                //}
             }
-
         }
 
-        private void btnTimKiem_Click(object sender, EventArgs e)
+        private void gvNoiDungChiTiet_MasterRowGetRelationCount(object sender, MasterRowGetRelationCountEventArgs e)
         {
-            loadNoiDung();
-            //Show group columns in the table.
-            griditem.OptionsView.ShowGroupedColumns = true;
+            e.RelationCount = 1;
+        }
 
-            // Expand group rows.
-            griditem.ExpandAllGroups();
-            //GridColumn colReceived = griditem.Columns["NoiDungTC"];
-            //GridColumn colRead = griditem.Columns["NoiDungCT"];
-            //griditem.BeginSort();
-            //try
+        private void gvNoiDungChiTiet_MasterRowGetRelationName(object sender, MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "LuaChonChiTiet";
+        }
+
+        private void gvLuaChonChiTiet_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        {
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+        }
+
+        private void gvLuaChonChiTiet_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        {
+            string sErr = "";
+            bool bVali = true;
+            var maLC = gvLuaChonChiTiet.GetRowCellValue(e.RowHandle, "MaLC").ToString();
+            var diem = gvLuaChonChiTiet.GetRowCellValue(e.RowHandle, "DiemSV").ToString();
+            XtraMessageBox.Show(maLC, diem, MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //if (e.RowHandle < 0)
             //{
-            //    griditem.ClearGrouping();
-            //    colReceived.Width = 500;
-            //    colReceived.GroupIndex = 0;
-            //    colRead.Width = 500;
-            //    colRead.GroupIndex = 1;
+            //    if (string.IsNullOrEmpty(maLC))
+            //    {
+            //        bVali = false;
+            //        sErr = sErr + "Vui lòng nhập tên khoa";
+            //    }
             //}
-            //finally
-            //{
-            //    griditem.EndSort();
-            //}
+        }
+
+        private void gvDGRL_ProcessGridKey(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

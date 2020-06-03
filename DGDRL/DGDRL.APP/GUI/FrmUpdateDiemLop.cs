@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DGDRL.Model.DTO;
 using DGDRL.APP.DAO;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace DGDRL.APP.GUI
 {
@@ -26,44 +27,119 @@ namespace DGDRL.APP.GUI
             MSSV = mssv;
             Nam = nam;
             Hocky = hocky;
-            loadNoiDung();
+            LoadData();
         }
-        public void loadNoiDung()
+        public void LoadData()
+        {
+            var dao = new TieuChiDanhGiaDAO();
+            var lstall = dao.GetAll().Select(x => new { x.MaTC, NoiDungTC = x.NoiDung, x.DiemTCMax }).ToList();
+            gvDGRL.DataSource = lstall;
+        }
+        private void gvTieuChiDanhGia_MasterRowEmpty(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowEmptyEventArgs e)
+        {
+            var dao = new NoiDungChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                var lst = dao.GetAllTieuChi(tcdg.MaTC) as List<NoiDungChiTiet>;
+                e.IsEmpty = lst.Count <= 0;
+            }
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetChildList(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetChildListEventArgs e)
+        {
+            var dao = new NoiDungChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                e.ChildList = dao.GetAllTieuChi(tcdg.MaTC);
+            }
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetRelationCount(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
+        }
+
+        private void gvTieuChiDanhGia_MasterRowGetRelationName(object sender, DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "NoiDungChiTiet";
+        }
+
+        private void gvNoiDungChiTiet_MasterRowEmpty(object sender, MasterRowEmptyEventArgs e)
+        {
+            var dao = new LuaChonChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
+            {
+                var lst = dao.GetAllLuaChon(tcdg.MaCT) as List<LuaChonChiTiet>;
+                e.IsEmpty = lst.Count <= 0;
+            }
+        }
+
+        private void gvNoiDungChiTiet_MasterRowGetChildList(object sender, MasterRowGetChildListEventArgs e)
         {
             var dao = new DiemDanhGiaRenLuyenDAO();
-            var lst = dao.GetAllByMSSV(MSSV, Nam, Hocky);
-            var lstrenluyen = dao._db.ViewLuaChonChiTiets.ToList();
-            if (lst.Count() <= 0)
+            var daob = new LuaChonChiTietDAO();
+            GridView view = sender as GridView;
+            var tcdg = view.GetRow(e.RowHandle) as dynamic;
+            if (tcdg != null)
             {
-                foreach (var item in lstrenluyen)
+                var lst = dao.GetAllByMSSV(MSSV, Nam, Hocky);
+                var lstrenluyen = dao._db.ViewLuaChonChiTiets.ToList();
+                if (lst.Count() <= 0)
                 {
-                    dao.AddOrUpdate(new Model.DTO.DGRenLuyen()
+                    foreach (var item in lstrenluyen)
                     {
-                        NamHoc = Nam,
-                        MaHK = Hocky,
-                        MSSV = MSSV,
-                        MaLC = item.MaLC
-                    }, 0);
+                        dao.AddOrUpdate(new Model.DTO.DGRenLuyen()
+                        {
+                            NamHoc = Nam,
+                            MaHK = Hocky,
+                            MSSV = MSSV,
+                            MaLC = item.MaLC
+                        }, 0);
+                    }
+                    lst = dao.GetAllByMSSV(MSSV, Nam, Hocky);
                 }
-                lst = dao.GetAllByMSSV(MSSV, Nam, Hocky);
+                var lc = daob.GetAllLuaChon(tcdg.MaCT) as List<LuaChonChiTiet>;
+                var lstsource = from a in lst.Where(x=> lc.Any(y=> y.MaLC == x.MaLC))
+                                join b in lc on a.MaLC equals b.MaLC
+                                select new
+                                {
+                                    b.MaLC,
+                                    b.MoTa,
+                                    DiemTT = b.DiemMin,
+                                    DiemTD = b.DiemMax,
+                                    DiemSV = a.DiemSVDG,
+                                    DiemLTT = a.DiemLT,
+                                    DiemGV = a.DiemCVHT
+
+                                };
+                e.ChildList = lstsource.ToList();
+                if (Username.ChucVu == "GV")
+                {
+                    this.DiemLTT.OptionsColumn.AllowEdit = false;
+                    this.DiemLTT.OptionsColumn.AllowFocus = false;
+                }
+                if (Username.ChucVu == "SVLT"&& Username.ChucVu == "SVLP")
+                {
+                    this.DiemGV.OptionsColumn.AllowEdit = false;
+                    this.DiemGV.OptionsColumn.AllowFocus = false;
+                }
             }
+        }
 
-            var lstsource = from a in lst
-                            join b in lstrenluyen on a.MaLC equals b.MaLC
-                            select new
-                            {
-                                a.ID,
-                                NoiDungTC = (b.MaTC.ToString().Length >= 2) ? b.MaTC + ": " + b.NoiDungTC : b.MaTC + ": " + b.NoiDungTC,
-                                NoiDungCT = (b.MaCT.ToString().Length >= 2) ? "0" + b.MaCT + ": " + b.NoiDungCT : "00" + b.MaCT + ": " + b.NoiDungCT,
-                                NoiDungLC = (a.MaLC.ToString().Length >= 2) ? "0" + a.MaLC + ": " + b.NoiDungLC : "00" + a.MaLC + ": " + b.NoiDungLC,
-                                b.DiemTCMax,
-                                b.DiemMax,
-                                a.DiemSVDG,
-                                a.DiemLT,
-                                a.DiemCVHT
-                            };
+        private void gvNoiDungChiTiet_MasterRowGetRelationCount(object sender, MasterRowGetRelationCountEventArgs e)
+        {
+            e.RelationCount = 1;
+        }
 
-            gcDanhSach.DataSource = lstsource;
+        private void gvNoiDungChiTiet_MasterRowGetRelationName(object sender, MasterRowGetRelationNameEventArgs e)
+        {
+            e.RelationName = "LuaChonChiTiet";
         }
     }
 }
