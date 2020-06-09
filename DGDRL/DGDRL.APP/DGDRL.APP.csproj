@@ -89,6 +89,12 @@
     <Compile Include="GUI\FrmChangePassWord.Designer.cs">
       <DependentUpon>FrmChangePassWord.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmUpdateDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmUpdateDiem.Designer.cs">
+      <DependentUpon>FrmUpdateDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmUpdateDiemLop.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTrangChu.resx">
       <DependentUpon>FrmTrangChu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmUpdateDiem.resx">
+      <DependentUpon>FrmUpdateDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmUpdateDiemLop.resx">
       <DependentUpon>FrmUpdateDiemLop.cs</DependentUpon>

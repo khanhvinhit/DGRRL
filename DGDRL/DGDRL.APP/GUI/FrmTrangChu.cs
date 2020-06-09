@@ -24,22 +24,39 @@ namespace DGDRL.APP.GUI
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.dataSend = new FrmLogin.DataSend(GetFirstValue);
             frmLogin.ShowDialog();
-            if (Username != null)
-            {
-                if (Username.ChucVu != "admin")
-                {
-
-                }
-            }
-            else
+            if (Username == null)
             {
                 frmLogin.ShowDialog();
             }
         }
-
+        public void Quyen(string quyen)
+        {
+            this.ribbonPage2.Visible = false;
+            this.btnDanhGiaDiemRenLuyen.Visibility = BarItemVisibility.Never;
+            this.btnDiemLop.Visibility = BarItemVisibility.Never;
+            if (quyen == "SVTV")
+            {
+                this.btnDanhGiaDiemRenLuyen.Visibility = BarItemVisibility.Always;
+            }
+            if (quyen == "SVLT" || quyen == "SVLP" || quyen == "SVTV")
+            {
+                this.btnDanhGiaDiemRenLuyen.Visibility = BarItemVisibility.Always;
+                this.btnDiemLop.Visibility = BarItemVisibility.Always;
+            }
+            if (quyen == "GV")
+            {
+                this.btnDiemLop.Visibility = BarItemVisibility.Always;
+            }
+            if (quyen == "admin")
+            {
+                this.ribbonPage2.Visible = true;
+            }
+        }
         public void GetFirstValue(TaiKhoan username)
         {
             this.Username = username;
+            Quyen(Username.ChucVu);
+            tabControlMain.TabPages.Clear();
         }
         public int checkTab(string TabNameAdd)
         {
@@ -56,7 +73,7 @@ namespace DGDRL.APP.GUI
         {
             if (checkTab(TabNameAdd) > -1)
             {
-                tabControlMain.SelectedTabPage = tabControlMain.TabPages[checkTab(TabNameAdd)];
+                XtraTabCha.SelectedTabPage = XtraTabCha.TabPages[checkTab(TabNameAdd)];
             }
             else
             {
@@ -72,7 +89,7 @@ namespace DGDRL.APP.GUI
                     TAbAdd.ImageOptions.SvgImageSize = new Size(16, 16);
                 }
                 XtraTabCha.TabPages.Add(TAbAdd);
-                tabControlMain.SelectedTabPage = tabControlMain.TabPages[tabControlMain.TabPages.Count - 1];
+                XtraTabCha.SelectedTabPage = XtraTabCha.TabPages[tabControlMain.TabPages.Count - 1];
             }
         }
         private void tabControlMain_CloseButtonClick(object sender, EventArgs e)
@@ -128,7 +145,7 @@ namespace DGDRL.APP.GUI
 
         private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
         {
-            AddTab(tabControlMain, "btnDanhGiaDiemRenLuyen.ImageOptions.SvgImage", "DanhGiaDiemRenLuyen", "Đánh Giá Điểm Rèn Luyện", new usDanhSachDanhGiaDiemRenLuyen(Username.Username));
+            AddTab(tabControlMain, "btnDanhGiaDiemRenLuyen.ImageOptions.SvgImage", "DanhGiaDiemRenLuyen", "Đánh Giá Điểm Rèn Luyện", new usDanhSachDanhGiaDiemRenLuyen(Username,Username.Username));
         }
 
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)

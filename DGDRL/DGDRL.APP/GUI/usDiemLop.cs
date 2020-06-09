@@ -23,12 +23,27 @@ namespace DGDRL.APP.GUI
             if (us != null)
             {
                 Username = us;
+                Quyen(Username.ChucVu);
             }
             LoadHocKy();
             LoadNamHoc();
             AddRepository();
         }
-
+        public void Quyen(string quyen)
+        {
+            this.btnChuyenDiem.Visible = false;
+            this.btnChuyenDiemLT.Visible = false;
+            this.btnChuyenDiemSV.Visible = false;
+            if (quyen == "GV")
+            {
+                this.btnChuyenDiemLT.Visible = true;
+                this.btnChuyenDiemSV.Visible = true;
+            }
+            else
+            {
+                this.btnChuyenDiem.Visible = true;
+            }
+        }
         private void AddRepository()
         {
             RepositoryItemButtonEdit edit = new RepositoryItemButtonEdit();
@@ -41,7 +56,7 @@ namespace DGDRL.APP.GUI
         void edit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
         {
             var item = griditem.GetRow(griditem.FocusedRowHandle) as dynamic;
-            var form = new FrmUpdateDiemLop(Username,item.MSSV,item.Nam,item.hocky);
+            var form = new FrmUpdateDiemLop(Username, item.MSSV, item.Nam, item.hocky);
             form.FormClosed += new FormClosedEventHandler(form_FormClosed);
             form.ShowDialog();
         }
@@ -51,15 +66,14 @@ namespace DGDRL.APP.GUI
         }
         public void LoadHocKy()
         {
-
-            var lst = new List<KeyValuePair<int, string>>() {
-                new KeyValuePair<int, string>(1,"Học Kỳ 1"),
-                new KeyValuePair<int, string>(2,"Học Kỳ 2")
+            var lst = new List<KeyValuePair<string, string>>() {
+                new KeyValuePair<string, string>("I","Học Kỳ 1"),
+                new KeyValuePair<string, string>("II","Học Kỳ 2")
             };
             cbbHocKy.Properties.DataSource = lst;
             cbbHocKy.Properties.ValueMember = "Key";
             cbbHocKy.Properties.DisplayMember = "Value";
-            cbbHocKy.EditValue = "1";
+            cbbHocKy.EditValue = "I";
         }
         public void LoadNamHoc()
         {
@@ -136,15 +150,15 @@ namespace DGDRL.APP.GUI
             {
                 if (type == "DiemSVDG")
                 {
-                    return diem.Sum(x => x.DiemSVDG??0);
+                    return diem.Sum(x => x.DiemSVDG ?? 0);
                 }
                 if (type == "DiemLT")
                 {
-                    return diem.Sum(x => x.DiemLT??0);
+                    return diem.Sum(x => x.DiemLT ?? 0);
                 }
                 if (type == "DiemCVHT")
                 {
-                    return diem.Sum(x => x.DiemCVHT??0);
+                    return diem.Sum(x => x.DiemCVHT ?? 0);
                 }
             }
             return 0;
@@ -153,6 +167,112 @@ namespace DGDRL.APP.GUI
         private void btnLoad_Click(object sender, EventArgs e)
         {
             LoadDSHocSinh();
+        }
+
+        private void btnChuyenDiemLT_Click(object sender, EventArgs e)
+        {
+            var hocky = cbbHocKy.EditValue as string;
+            var namhoc = cbbNamHoc.EditValue as string;
+            if (string.IsNullOrEmpty(hocky))
+            {
+                XtraMessageBox.Show("Vui lòng chọn học kỳ", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(namhoc))
+            {
+                XtraMessageBox.Show("Vui lòng chọn năm học", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var check = UpdateChuyenDiem(namhoc, hocky, "GV1");
+                if (check)
+                {
+                    XtraMessageBox.Show("Chuyển điểm thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Chuyển điểm lỗi", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void btnChuyenDiemSV_Click(object sender, EventArgs e)
+        {
+            var hocky = cbbHocKy.EditValue as string;
+            var namhoc = cbbNamHoc.EditValue as string;
+            if (string.IsNullOrEmpty(hocky))
+            {
+                XtraMessageBox.Show("Vui lòng chọn học kỳ", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(namhoc))
+            {
+                XtraMessageBox.Show("Vui lòng chọn năm học", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var check = UpdateChuyenDiem(namhoc, hocky, "GV2");
+                if (check)
+                {
+                    LoadDSHocSinh();
+                    XtraMessageBox.Show("Chuyển điểm thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Chuyển điểm lỗi", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+
+        private void btnChuyenDiem_Click(object sender, EventArgs e)
+        {
+            var hocky = cbbHocKy.EditValue as string;
+            var namhoc = cbbNamHoc.EditValue as string;
+            if (string.IsNullOrEmpty(hocky))
+            {
+                LoadDSHocSinh();
+                XtraMessageBox.Show("Vui lòng chọn học kỳ", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (string.IsNullOrEmpty(namhoc))
+            {
+                XtraMessageBox.Show("Vui lòng chọn năm học", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                var check = UpdateChuyenDiem(namhoc, hocky, "SV");
+                if (check)
+                {
+                    LoadDSHocSinh();
+                    XtraMessageBox.Show("Chuyển điểm thành công", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    XtraMessageBox.Show("Chuyển điểm lỗi", "Thông Báo!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+            }
+        }
+        public bool UpdateChuyenDiem( string namhoc, string hocky, string type)
+        {
+            var nam = int.Parse(namhoc.Split('-')[0].ToString());
+            var dao = new DAO.DiemDanhGiaRenLuyenDAO();
+            var lst = dao.GetAllByMSSV(nam, hocky);
+            foreach (var item in lst)
+            {
+                if (type == "GV1")
+                {
+                    item.DiemCVHT = item.DiemLT;
+                }
+                else if (type == "GV2")
+                {
+                    item.DiemCVHT = item.DiemSVDG;
+                }
+                else
+                {
+                    item.DiemLT = item.DiemSVDG;
+                }
+            }
+            return dao.SaveToDatabase();
         }
     }
 }

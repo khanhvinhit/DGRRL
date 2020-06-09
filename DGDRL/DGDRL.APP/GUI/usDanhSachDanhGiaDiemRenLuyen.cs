@@ -14,18 +14,22 @@ using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid;
 using DevExpress.Data;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace DGDRL.APP.GUI
 {
     public partial class usDanhSachDanhGiaDiemRenLuyen : UserControl
     {
+        public TaiKhoan Username;
         public string MSSV;
-        public usDanhSachDanhGiaDiemRenLuyen(string mssv)
+        public usDanhSachDanhGiaDiemRenLuyen(TaiKhoan us, string mssv)
         {
             InitializeComponent();
+            Username = us;
+            MSSV = mssv;
             LoadHocKy();
             LoadNamHoc();
-            MSSV = mssv;
         }
         public void LoadHocKy()
         {
@@ -69,7 +73,7 @@ namespace DGDRL.APP.GUI
 
                 var dao = new TieuChiDanhGiaDAO();
                 var lstall = dao.GetAll().Select(x => new { x.MaTC, NoiDungTC = x.NoiDung, x.DiemTCMax }).ToList();
-                gvDGRL.DataSource = lstall;                
+                gvDGRL.DataSource = lstall;
             }
         }
 
@@ -97,7 +101,14 @@ namespace DGDRL.APP.GUI
             var tcdg = view.GetRow(e.RowHandle) as dynamic;
             if (tcdg != null)
             {
-                e.ChildList = dao.GetAllTieuChi(tcdg.MaTC);
+                e.ChildList = (dao.GetAllTieuChi(tcdg.MaTC) as List<NoiDungChiTiet>).ToList().Select(x => new
+                {
+                    MaCTView = (x.MaCT >= 10) ? "0" + x.MaCT : "00" + x.MaCT,
+                    x.MaCT,
+                    x.MaTC,
+                    x.NoiDung,
+                    x.DiemCTMax
+                }).ToList();
             }
         }
 
@@ -155,6 +166,7 @@ namespace DGDRL.APP.GUI
                                 join b in lc on a.MaLC equals b.MaLC
                                 select new
                                 {
+                                    MaLCView = (b.MaLC >= 10) ? "0" + b.MaLC : "00" + b.MaLC,
                                     b.MaLC,
                                     b.MoTa,
                                     DiemTT = b.DiemMin,
@@ -164,11 +176,6 @@ namespace DGDRL.APP.GUI
                                     DiemGV = a.DiemCVHT
                                 };
                 e.ChildList = lstsource.ToList();
-                //if (lst.Any(x=>x.DiemCVHT != null))
-                //{
-                //    this.DiemSV.OptionsColumn.AllowEdit = false;
-                //    this.DiemSV.OptionsColumn.AllowFocus = false;
-                //}
             }
         }
 
@@ -181,33 +188,30 @@ namespace DGDRL.APP.GUI
         {
             e.RelationName = "LuaChonChiTiet";
         }
-
-        private void gvLuaChonChiTiet_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
+        private void gvLuaChonChiTiet_DoubleClick(object sender, EventArgs e)
         {
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+            DXMouseEventArgs ea = e as DXMouseEventArgs;
+            GridView view = sender as GridView;
+            var item = view.DataSource as dynamic;
+            if (item != null)
+            {
+                int id = item[0].MaLC;
+                int diem = item[0].DiemSV ?? 0;
+                int diemtt = item[0].DiemTT ?? 0;
+                int diemtd = item[0].DiemTD ?? 0;
+                var frm = new FrmUpdateDiem(Username,id, diem, diemtt, diemtd,"Thap");
+                frm.StartPosition = FormStartPosition.Manual;
+                var _point = new System.Drawing.Point(Cursor.Position.X, Cursor.Position.Y-15);
+                frm.Location = _point;
+                frm.FormClosed += new FormClosedEventHandler(frm_FormClosed);
+                frm.ShowDialog();
+            }
+            
         }
 
-        private void gvLuaChonChiTiet_ValidateRow(object sender, DevExpress.XtraGrid.Views.Base.ValidateRowEventArgs e)
+        private void frm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            string sErr = "";
-            bool bVali = true;
-            var maLC = gvLuaChonChiTiet.GetRowCellValue(e.RowHandle, "MaLC").ToString();
-            var diem = gvLuaChonChiTiet.GetRowCellValue(e.RowHandle, "DiemSV").ToString();
-            XtraMessageBox.Show(maLC, diem, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //if (e.RowHandle < 0)
-            //{
-            //    if (string.IsNullOrEmpty(maLC))
-            //    {
-            //        bVali = false;
-            //        sErr = sErr + "Vui lòng nhập tên khoa";
-            //    }
-            //}
-        }
-
-        private void gvDGRL_ProcessGridKey(object sender, KeyEventArgs e)
-        {
-
+            loadNoiDung();
         }
     }
 }

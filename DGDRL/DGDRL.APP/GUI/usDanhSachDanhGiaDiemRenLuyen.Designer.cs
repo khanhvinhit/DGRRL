@@ -31,7 +31,7 @@
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.gvNoiDungChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaCT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaCTView = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
             this.NoiDung = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
@@ -52,10 +52,8 @@
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.repositoryItemMemoEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit();
-            this.DiemSVEdit = new DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit();
-            this.DiemSVTextEdit = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gvLuaChonChiTiet = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.MaLC = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.MaLCView = new DevExpress.XtraGrid.Columns.GridColumn();
             this.MoTa = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DiemTT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.DiemTD = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -76,8 +74,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiemSVEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiemSVTextEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLuaChonChiTiet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -92,7 +88,7 @@
             this.gvNoiDungChiTiet.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvNoiDungChiTiet.Appearance.Row.Options.UseFont = true;
             this.gvNoiDungChiTiet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MaCT,
+            this.MaCTView,
             this.NoiDung,
             this.gridColumn5,
             this.DiemCTMax,
@@ -101,6 +97,7 @@
             this.gridColumn8});
             this.gvNoiDungChiTiet.GridControl = this.gvDGRL;
             this.gvNoiDungChiTiet.Name = "gvNoiDungChiTiet";
+            this.gvNoiDungChiTiet.OptionsBehavior.AutoExpandAllGroups = true;
             this.gvNoiDungChiTiet.OptionsDetail.ShowDetailTabs = false;
             this.gvNoiDungChiTiet.OptionsView.RowAutoHeight = true;
             this.gvNoiDungChiTiet.OptionsView.ShowColumnHeaders = false;
@@ -111,23 +108,23 @@
             this.gvNoiDungChiTiet.MasterRowGetRelationName += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationNameEventHandler(this.gvNoiDungChiTiet_MasterRowGetRelationName);
             this.gvNoiDungChiTiet.MasterRowGetRelationCount += new DevExpress.XtraGrid.Views.Grid.MasterRowGetRelationCountEventHandler(this.gvNoiDungChiTiet_MasterRowGetRelationCount);
             // 
-            // MaCT
+            // MaCTView
             // 
-            this.MaCT.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaCT.AppearanceCell.Options.UseFont = true;
-            this.MaCT.Caption = "STT";
-            this.MaCT.ColumnEdit = this.repositoryItemMemoEdit4;
-            this.MaCT.FieldName = "MaCT";
-            this.MaCT.MaxWidth = 50;
-            this.MaCT.MinWidth = 50;
-            this.MaCT.Name = "MaCT";
-            this.MaCT.OptionsColumn.AllowEdit = false;
-            this.MaCT.OptionsColumn.AllowFocus = false;
-            this.MaCT.OptionsFilter.AllowAutoFilter = false;
-            this.MaCT.OptionsFilter.AllowFilter = false;
-            this.MaCT.Visible = true;
-            this.MaCT.VisibleIndex = 0;
-            this.MaCT.Width = 50;
+            this.MaCTView.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaCTView.AppearanceCell.Options.UseFont = true;
+            this.MaCTView.Caption = "STT";
+            this.MaCTView.ColumnEdit = this.repositoryItemMemoEdit4;
+            this.MaCTView.FieldName = "MaCTView";
+            this.MaCTView.MaxWidth = 50;
+            this.MaCTView.MinWidth = 50;
+            this.MaCTView.Name = "MaCTView";
+            this.MaCTView.OptionsColumn.AllowEdit = false;
+            this.MaCTView.OptionsColumn.AllowFocus = false;
+            this.MaCTView.OptionsFilter.AllowAutoFilter = false;
+            this.MaCTView.OptionsFilter.AllowFilter = false;
+            this.MaCTView.Visible = true;
+            this.MaCTView.VisibleIndex = 0;
+            this.MaCTView.Width = 50;
             // 
             // repositoryItemMemoEdit4
             // 
@@ -248,17 +245,15 @@
             this.repositoryItemMemoEdit5,
             this.repositoryItemMemoEdit4,
             this.repositoryItemMemoEdit6,
-            this.DiemSVEdit,
             this.repositoryItemMemoEdit1,
-            this.repositoryItemMemoEdit2,
-            this.DiemSVTextEdit});
+            this.repositoryItemMemoEdit2});
             this.gvDGRL.Size = new System.Drawing.Size(942, 430);
             this.gvDGRL.TabIndex = 19;
+            this.gvDGRL.UseEmbeddedNavigator = true;
             this.gvDGRL.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvTieuChiDanhGia,
             this.gvLuaChonChiTiet,
             this.gvNoiDungChiTiet});
-            this.gvDGRL.ProcessGridKey += new System.Windows.Forms.KeyEventHandler(this.gvDGRL_ProcessGridKey);
             // 
             // gvTieuChiDanhGia
             // 
@@ -277,6 +272,7 @@
             this.gridColumn13});
             this.gvTieuChiDanhGia.GridControl = this.gvDGRL;
             this.gvTieuChiDanhGia.Name = "gvTieuChiDanhGia";
+            this.gvTieuChiDanhGia.OptionsBehavior.AutoExpandAllGroups = true;
             this.gvTieuChiDanhGia.OptionsDetail.ShowDetailTabs = false;
             this.gvTieuChiDanhGia.OptionsView.RowAutoHeight = true;
             this.gvTieuChiDanhGia.OptionsView.ShowGroupExpandCollapseButtons = false;
@@ -406,18 +402,6 @@
             // 
             this.repositoryItemMemoEdit5.Name = "repositoryItemMemoEdit5";
             // 
-            // DiemSVEdit
-            // 
-            this.DiemSVEdit.AutoHeight = false;
-            this.DiemSVEdit.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.DiemSVEdit.Name = "DiemSVEdit";
-            // 
-            // DiemSVTextEdit
-            // 
-            this.DiemSVTextEdit.AutoHeight = false;
-            this.DiemSVTextEdit.Name = "DiemSVTextEdit";
-            // 
             // gvLuaChonChiTiet
             // 
             this.gvLuaChonChiTiet.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -425,7 +409,7 @@
             this.gvLuaChonChiTiet.Appearance.Row.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvLuaChonChiTiet.Appearance.Row.Options.UseFont = true;
             this.gvLuaChonChiTiet.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.MaLC,
+            this.MaLCView,
             this.MoTa,
             this.DiemTT,
             this.DiemTD,
@@ -439,23 +423,22 @@
             this.gvLuaChonChiTiet.OptionsView.ShowColumnHeaders = false;
             this.gvLuaChonChiTiet.OptionsView.ShowGroupPanel = false;
             this.gvLuaChonChiTiet.OptionsView.ShowIndicator = false;
-            this.gvLuaChonChiTiet.InvalidRowException += new DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventHandler(this.gvLuaChonChiTiet_InvalidRowException);
-            this.gvLuaChonChiTiet.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.gvLuaChonChiTiet_ValidateRow);
+            this.gvLuaChonChiTiet.DoubleClick += new System.EventHandler(this.gvLuaChonChiTiet_DoubleClick);
             // 
-            // MaLC
+            // MaLCView
             // 
-            this.MaLC.Caption = "STT";
-            this.MaLC.FieldName = "MaLC";
-            this.MaLC.MaxWidth = 50;
-            this.MaLC.MinWidth = 50;
-            this.MaLC.Name = "MaLC";
-            this.MaLC.OptionsColumn.AllowEdit = false;
-            this.MaLC.OptionsColumn.AllowFocus = false;
-            this.MaLC.OptionsFilter.AllowAutoFilter = false;
-            this.MaLC.OptionsFilter.AllowFilter = false;
-            this.MaLC.Visible = true;
-            this.MaLC.VisibleIndex = 0;
-            this.MaLC.Width = 50;
+            this.MaLCView.Caption = "STT";
+            this.MaLCView.FieldName = "MaLCView";
+            this.MaLCView.MaxWidth = 50;
+            this.MaLCView.MinWidth = 50;
+            this.MaLCView.Name = "MaLCView";
+            this.MaLCView.OptionsColumn.AllowEdit = false;
+            this.MaLCView.OptionsColumn.AllowFocus = false;
+            this.MaLCView.OptionsFilter.AllowAutoFilter = false;
+            this.MaLCView.OptionsFilter.AllowFilter = false;
+            this.MaLCView.Visible = true;
+            this.MaLCView.VisibleIndex = 0;
+            this.MaLCView.Width = 50;
             // 
             // MoTa
             // 
@@ -503,13 +486,15 @@
             // DiemSV
             // 
             this.DiemSV.Caption = "Điểm SV";
-            this.DiemSV.ColumnEdit = this.DiemSVEdit;
             this.DiemSV.FieldName = "DiemSV";
             this.DiemSV.MaxWidth = 90;
             this.DiemSV.MinWidth = 90;
             this.DiemSV.Name = "DiemSV";
+            this.DiemSV.OptionsColumn.AllowEdit = false;
+            this.DiemSV.OptionsColumn.AllowFocus = false;
             this.DiemSV.OptionsFilter.AllowAutoFilter = false;
             this.DiemSV.OptionsFilter.AllowFilter = false;
+            this.DiemSV.ToolTip = "Nhấn 2 lần để cập nhật điểm";
             this.DiemSV.Visible = true;
             this.DiemSV.VisibleIndex = 4;
             this.DiemSV.Width = 90;
@@ -620,8 +605,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoEdit5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiemSVEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DiemSVTextEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLuaChonChiTiet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
@@ -642,7 +625,7 @@
         private DevExpress.XtraEditors.SimpleButton btnTimKiem;
         private DevExpress.XtraGrid.GridControl gvDGRL;
         private DevExpress.XtraGrid.Views.Grid.GridView gvNoiDungChiTiet;
-        private DevExpress.XtraGrid.Columns.GridColumn MaCT;
+        private DevExpress.XtraGrid.Columns.GridColumn MaCTView;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit4;
         private DevExpress.XtraGrid.Columns.GridColumn NoiDung;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
@@ -651,7 +634,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Views.Grid.GridView gvLuaChonChiTiet;
-        private DevExpress.XtraGrid.Columns.GridColumn MaLC;
+        private DevExpress.XtraGrid.Columns.GridColumn MaLCView;
         private DevExpress.XtraGrid.Columns.GridColumn MoTa;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit5;
         private DevExpress.XtraGrid.Columns.GridColumn DiemTT;
@@ -669,8 +652,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemSpinEdit DiemSVEdit;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoEdit repositoryItemMemoEdit2;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit DiemSVTextEdit;
     }
 }

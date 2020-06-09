@@ -45,10 +45,10 @@
             this.DiemCVHT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDanhSach = new DevExpress.XtraGrid.GridControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyenDiemSV = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyenDiemLT = new DevExpress.XtraEditors.SimpleButton();
+            this.btnChuyenDiem = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.cbbHocKy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbbNamHoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TenKhoa_Edit)).BeginInit();
@@ -228,10 +228,10 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.simpleButton3);
+            this.panelControl1.Controls.Add(this.btnChuyenDiemSV);
             this.panelControl1.Controls.Add(this.btnLoad);
-            this.panelControl1.Controls.Add(this.simpleButton2);
-            this.panelControl1.Controls.Add(this.btnAdd);
+            this.panelControl1.Controls.Add(this.btnChuyenDiemLT);
+            this.panelControl1.Controls.Add(this.btnChuyenDiem);
             this.panelControl1.Controls.Add(this.gcDanhSach);
             this.panelControl1.Controls.Add(this.labelControl1);
             this.panelControl1.Controls.Add(this.cbbHocKy);
@@ -243,14 +243,15 @@
             this.panelControl1.Size = new System.Drawing.Size(796, 485);
             this.panelControl1.TabIndex = 1;
             // 
-            // simpleButton3
+            // btnChuyenDiemSV
             // 
-            this.simpleButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton3.Location = new System.Drawing.Point(482, 52);
-            this.simpleButton3.Name = "simpleButton3";
-            this.simpleButton3.Size = new System.Drawing.Size(147, 23);
-            this.simpleButton3.TabIndex = 16;
-            this.simpleButton3.Text = "Chuyển Điểm Của Sinh Vien";
+            this.btnChuyenDiemSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChuyenDiemSV.Location = new System.Drawing.Point(482, 52);
+            this.btnChuyenDiemSV.Name = "btnChuyenDiemSV";
+            this.btnChuyenDiemSV.Size = new System.Drawing.Size(147, 23);
+            this.btnChuyenDiemSV.TabIndex = 16;
+            this.btnChuyenDiemSV.Text = "Chuyển Điểm Của Sinh Vien";
+            this.btnChuyenDiemSV.Click += new System.EventHandler(this.btnChuyenDiemSV_Click);
             // 
             // btnLoad
             // 
@@ -262,23 +263,25 @@
             this.btnLoad.Text = "Làm Mới";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
-            // simpleButton2
+            // btnChuyenDiemLT
             // 
-            this.simpleButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.simpleButton2.Location = new System.Drawing.Point(315, 52);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(161, 23);
-            this.simpleButton2.TabIndex = 15;
-            this.simpleButton2.Text = "Chuyển Điểm Lớp Trưởng";
+            this.btnChuyenDiemLT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChuyenDiemLT.Location = new System.Drawing.Point(315, 52);
+            this.btnChuyenDiemLT.Name = "btnChuyenDiemLT";
+            this.btnChuyenDiemLT.Size = new System.Drawing.Size(161, 23);
+            this.btnChuyenDiemLT.TabIndex = 15;
+            this.btnChuyenDiemLT.Text = "Chuyển Điểm Lớp Trưởng";
+            this.btnChuyenDiemLT.Click += new System.EventHandler(this.btnChuyenDiemLT_Click);
             // 
-            // btnAdd
+            // btnChuyenDiem
             // 
-            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAdd.Location = new System.Drawing.Point(635, 52);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 15;
-            this.btnAdd.Text = "Chuyển Điểm";
+            this.btnChuyenDiem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChuyenDiem.Location = new System.Drawing.Point(635, 52);
+            this.btnChuyenDiem.Name = "btnChuyenDiem";
+            this.btnChuyenDiem.Size = new System.Drawing.Size(75, 23);
+            this.btnChuyenDiem.TabIndex = 15;
+            this.btnChuyenDiem.Text = "Chuyển Điểm";
+            this.btnChuyenDiem.Click += new System.EventHandler(this.btnChuyenDiem_Click);
             // 
             // usDiemLop
             // 
@@ -313,10 +316,10 @@
         private DevExpress.XtraGrid.Views.Grid.GridView griditem;
         private DevExpress.XtraGrid.GridControl gcDanhSach;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        private DevExpress.XtraEditors.SimpleButton btnChuyenDiemSV;
         private DevExpress.XtraEditors.SimpleButton btnLoad;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnChuyenDiemLT;
+        private DevExpress.XtraEditors.SimpleButton btnChuyenDiem;
         private DevExpress.XtraGrid.Columns.GridColumn MSSV;
         private DevExpress.XtraGrid.Columns.GridColumn HoTen;
         private DevExpress.XtraGrid.Columns.GridColumn NgaySinh;

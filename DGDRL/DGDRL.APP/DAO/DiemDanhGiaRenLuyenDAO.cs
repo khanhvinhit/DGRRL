@@ -20,9 +20,12 @@ namespace DGDRL.APP.DAO
         }
         public List<DGRenLuyen> GetAllByMSSV(string masv, int NamHoc, string HocKy)
         {
-            return _db.DGRenLuyens.Where(x=>x.MSSV == masv && x.NamHoc == NamHoc && x.MaHK == HocKy).ToList();
+            return _db.DGRenLuyens.Where(x=>x.MSSV == masv && x.NamHoc == NamHoc && x.MaHK == HocKy).OrderBy(x=>x.ID).ToList();
         }
-
+        public List<DGRenLuyen> GetAllByMSSV(int NamHoc, string HocKy)
+        {
+            return _db.DGRenLuyens.Where(x => x.NamHoc == NamHoc && x.MaHK == HocKy).ToList();
+        }
         public bool AddOrUpdate(DGRenLuyen item, int mode)
         {
             if (mode == 0)
@@ -47,6 +50,25 @@ namespace DGDRL.APP.DAO
             _db.DGRenLuyens.Remove(del);
             return SaveToDatabase();
         }
-
+        public bool UpdateDiem(int ID, int Diem, string Role, string type)
+        {
+            var del = GetByID(ID);
+            if (type == "Thap")
+            {
+                del.DiemSVDG = Diem;
+            }
+            else
+            {
+                if (Role == "GV")
+                {
+                    del.DiemCVHT = Diem;
+                }
+                else
+                {
+                    del.DiemLT = Diem;
+                }
+            }
+            return SaveToDatabase();
+        }
     }
 }

@@ -47,6 +47,7 @@
             this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
             this.btnDanhGiaDiemRenLuyen = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDiemLop = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -54,7 +55,6 @@
             this.tabControlMain = new DevExpress.XtraTab.XtraTabControl();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.btnDiemLop = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControlMain)).BeginInit();
             this.SuspendLayout();
@@ -212,6 +212,14 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
+            // btnDiemLop
+            // 
+            this.btnDiemLop.Caption = "Điểm Lớp";
+            this.btnDiemLop.Id = 25;
+            this.btnDiemLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDiemLop.ImageOptions.SvgImage")));
+            this.btnDiemLop.Name = "btnDiemLop";
+            this.btnDiemLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemLop_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -262,7 +270,6 @@
             // 
             this.barButtonItem2.Caption = "Đổi Mật Khẩu";
             this.barButtonItem2.Id = 10;
-            //this.barButtonItem2.ImageOptions.SvgImage = global::DGDRL.APP.Properties.Resources.security_key;
             this.barButtonItem2.Name = "barButtonItem2";
             // 
             // barButtonItem4
@@ -271,14 +278,6 @@
             this.barButtonItem4.Id = 3;
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.Name = "barButtonItem4";
-            // 
-            // btnDiemLop
-            // 
-            this.btnDiemLop.Caption = "Điểm Lớp";
-            this.btnDiemLop.Id = 25;
-            this.btnDiemLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem8.ImageOptions.SvgImage")));
-            this.btnDiemLop.Name = "btnDiemLop";
-            this.btnDiemLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDiemLop_ItemClick);
             // 
             // FrmTrangChu
             // 
